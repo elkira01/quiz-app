@@ -1,0 +1,99 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  admin
+  player
+}
+
+enum Level {
+  easy
+  medium
+  hard
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String?
+  password  String
+  roles     Role     @default(admin)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // relations
+  categories    QuizCategory[]
+  authauredQuiz Quiz[]
+  scores        QuizScores[]
+}
+
+model QuizCategory {
+  id          String   @id @default(uuid())
+  designation String   @unique
+  authorId    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // relations
+  author         User   @relation(fields: [authorId], references: [id])
+  affiliatedQuiz Quiz[]
+}
+
+model QuizQuestion {
+  id        String   @id @default(uuid())
+  statement String
+  response  Int
+  quizId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // relations
+  quiz         Quiz                @relation(fields: [quizId], references: [id])
+  propositions QuestionPropsItem[]
+}
+
+model QuestionPropsItem {
+  id         Int      @id @default(autoincrement())
+  content    String
+  questionId String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // relations
+  question QuizQuestion @relation(fields: [questionId], references: [id])
+}
+
+model Quiz {
+  id         String   @id @default(uuid())
+  title      String
+  categoryId String
+  authorId   String
+  level      Level
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // relations
+  category    QuizCategory   @relation(fields: [categoryId], references: [id])
+  author      User           @relation(fields: [authorId], references: [id])
+  scores      QuizScores[]
+  quizEntries QuizQuestion[]
+}
+
+model QuizScores {
+  id           String   @id @default(uuid())
+  playerId     String
+  quizId       String
+  currentValue Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // relations
+  player User @relation(fields: [playerId], references: [id])
+  quiz   Quiz @relation(fields: [quizId], references: [id])
+}
