@@ -1,16 +1,21 @@
 import {useState} from "react";
 import {User} from "@/backend/domain/model/User";
-import {UserDTO} from "@/app/pages/user/controller/dto/UserDTO";
 import {UserRepositoryImpl} from "@/backend/infrastructure/persistence/ORM/user/UserRepositoryImpl";
+import {UserDTO} from "@/app/page/user/controller/dto/UserDTO";
+import {register} from "@/backend/application/useCases/user";
 
 const UserController = () => {
     const [user, setUser] = useState<User | undefined>()
     const repository = new UserRepositoryImpl();
 
     const registerUser = async (data: UserDTO) => {
-        const user = await repository.create(data)
+        const response = await register(repository, data)
 
-        console.log(user)
+        if(!response){
+            console.log('An error occured')
+        }
+        else
+            console.log(response)
     }
 
     return {

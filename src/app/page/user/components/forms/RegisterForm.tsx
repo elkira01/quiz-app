@@ -12,7 +12,7 @@ import {
     FormLabel,
     FormMessage
 } from "@/components/ui/form";
-import userController from "@/app/pages/user/controller/userController";
+import userController from "@/app/page/user/controller/userController";
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
 
@@ -40,7 +40,7 @@ export const RegisterForm = () => {
         }
     })
 
-    const onSubmit = (data: any) => registerUser;
+    const onSubmit = (data: any) => registerUser(data);
 
     return<Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -62,7 +62,7 @@ export const RegisterForm = () => {
                 name="email"
                 render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Nom d'utilisateur</FormLabel>
+                        <FormLabel>Addresse E-mail</FormLabel>
                         <FormControl>
                             <Input placeholder="shadcn" {...field} />
                         </FormControl>
@@ -75,7 +75,7 @@ export const RegisterForm = () => {
                 name="password"
                 render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Nom d'utilisateur</FormLabel>
+                        <FormLabel>Mot de passe</FormLabel>
                         <FormControl>
                             <Input placeholder="shadcn" {...field} />
                         </FormControl>
@@ -88,7 +88,7 @@ export const RegisterForm = () => {
                 name="passwordConfirmation"
                 render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Nom d'utilisateur</FormLabel>
+                        <FormLabel>Confirmer mot de passe</FormLabel>
                         <FormControl>
                             <Input placeholder="shadcn" {...field} />
                         </FormControl>
@@ -101,7 +101,7 @@ export const RegisterForm = () => {
                 name="role"
                 render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Nom d'utilisateur</FormLabel>
+                        <FormLabel>Role</FormLabel>
                         <FormControl>
                             <Input placeholder="shadcn" {...field} />
                         </FormControl>
@@ -109,7 +109,7 @@ export const RegisterForm = () => {
                     </FormItem>
                 )}
             />
-            <Button>Submit</Button>
+            <Button className="my-5">Submit</Button>
         </form>
     </Form>
 }
