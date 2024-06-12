@@ -1,10 +1,10 @@
-import {User} from "@/domain/model/User";
-import {QuizDomain} from "@/domain/model/QuizDomain";
+import {User} from "@/backend/domain/model/User";
+import {QuizDomain} from "@/backend/domain/model/QuizDomain";
 
 export interface Quiz {
     id?: any
     title: string
-    level: any
+    level: QuizLevel
     category: Partial<QuizDomain>
     author: Partial<User>
     entries?: Partial<QuizQuestion>[] |[]
@@ -14,10 +14,10 @@ export interface Quiz {
 
 export interface QuizQuestion {
     id?: any
+    quizId: any
     statement: string
     propositions: QuizProposition[] | []
-    response: {order?: number, value?: string}
-    quizId: any
+    response: { order?: number, value?: string }
     createdAt?: any
     updatedAt?: any
 }

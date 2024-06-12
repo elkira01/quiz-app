@@ -1,4 +1,4 @@
-import {QuizDomain} from "@/domain/model/QuizDomain";
+import {QuizDomain} from "@/backend/domain/model/QuizDomain";
 
 export interface IQuizDomainRepository {
     create(data: QuizDomain) : Promise<any>

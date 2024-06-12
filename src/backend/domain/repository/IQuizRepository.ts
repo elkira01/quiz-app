@@ -1,4 +1,4 @@
-import {Quiz, QuizQuestion} from "@/domain/model/Quiz";
+import {Quiz, QuizQuestion} from "@/backend/domain/model/Quiz";
 
 export interface IQuizRepository {
     create(quiz: Quiz): Promise<any>
@@ -6,4 +6,5 @@ export interface IQuizRepository {
     fetchAll(queryParams?: any): Promise<Quiz[] | undefined>
     edit(quizId: any, data: any): Promise<any>
     delete(quizId: any): Promise<any>
+    fetchAllEntries(quizId: any): Promise<QuizQuestion[] | undefined>
 }

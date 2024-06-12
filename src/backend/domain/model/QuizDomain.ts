@@ -1,9 +1,9 @@
-import {User} from "@/domain/model/User";
+import {User} from "@/backend/domain/model/User";
 
 export interface QuizDomain {
     id?: any
     designation: string
-    authorId: Partial<User>
+    author: Partial<User>
     createdAt?: any
     updatedAt?: any
 }

@@ -23,7 +23,7 @@ model User {
   name      String
   email     String?
   password  String
-  roles     Role     @default(admin)
+  role      Role     @default(admin)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
