@@ -1,9 +1,8 @@
 import {UserRole} from "@/backend/core/valueObject/UserRole";
 
-export type UserDTO = {
+export interface IUserDTO {
     id?: any
     name: string
-    email?: string
     password: string
-    role?: UserRole
+    role: UserRole
 }

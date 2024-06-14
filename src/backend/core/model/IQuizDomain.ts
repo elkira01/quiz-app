@@ -1,9 +1,9 @@
 import {User} from "@/backend/domain/model/User";
 
-export type QuizDomainDTO = {
+export interface IQuizDomain {
     id?: any
     designation: string
-    authorId: any
+    author: Partial<User>
     createdAt?: any
     updatedAt?: any
 }

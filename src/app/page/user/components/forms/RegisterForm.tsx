@@ -113,4 +113,3 @@ export const RegisterForm = () => {
             <Button className="my-5">Submit</Button>
         </form>
     </Form>
-}

@@ -1,14 +1,15 @@
 "use server"
 
-import {UserDTO} from "@/app/page/user/controller/dto/UserDTO";
-import prismaClient from "@/lib/PrismaClient";
 import {IUserRepository} from "@/backend/core/repository/IUserRepository";
-import {UserRepositoryImpl} from "@/backend/infrastructure/persistence/ORM/user/route";
+import {UserRepositoryImpl} from "@/backend/infra/persistence/user/UserRepositoryImpl";
+import {IUserDTO} from "@/backend/ui/user/dto/UserDTO";
 
 export default async function createUser(
-    data: UserDTO
+    data: IUserDTO
 ) {
    let repository : IUserRepository = new UserRepositoryImpl()
 
-   await repository.create(data)
+   let response = await repository.create(data)
+
+   console.log(response);
 }

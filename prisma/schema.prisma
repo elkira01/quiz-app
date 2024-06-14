@@ -18,7 +18,7 @@ enum Level {
   hard
 }
 
-model IUser {
+model User {
   id        String   @id @default(uuid())
   name      String
   email     String?

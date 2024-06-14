@@ -15,11 +15,11 @@ export class UserRepositoryImpl implements IUserRepository {
         })
     }
 
-    fetchAll(): Promise<any[]> {
+    findAll(): Promise<any[]> {
         return prismaClient.user.findMany();
     }
 
-    fetchOne(id: any): Promise<any | undefined> {
+    findOne(id: any): Promise<any | undefined> {
         return prismaClient.user.findUnique({
             where: id
         });
@@ -34,6 +34,12 @@ export class UserRepositoryImpl implements IUserRepository {
                 password:  data.password,
                 role: data.role,
             }
+        });
+    }
+
+    findBy(condition: any): Promise<any[]> {
+        return prismaClient.user.findMany({
+            where: condition
         });
     }
 

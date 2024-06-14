@@ -1,6 +1,4 @@
 import {useState} from "react";
-import {UserDTO} from "@/app/page/user/controller/dto/UserDTO";
-import {register} from "@/backend/application/useCases/user";
 
 const UserController = () => {
     // const [user, setUser] = useState<User | undefined>()
