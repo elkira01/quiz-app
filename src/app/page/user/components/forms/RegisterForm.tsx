@@ -15,7 +15,7 @@ import userController from "@/app/page/user/controller/userController";
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
 import {UserRole} from "@/backend/core/valueObject/UserRole";
-import createUser from "@/backend/ui/user/route";
+import createUser from "@/backend/ui/user/controller/route";
 
 
 export const RegisterForm = () => {
@@ -43,44 +43,44 @@ export const RegisterForm = () => {
 
     const onSubmit = (data: any) => createUser(data);
 
-    return<Form {...form}>
+    return <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
             <FormField
                 control={form.control}
                 name="name"
-                render={({ field }) => (
+                render={({field}) => (
                     <FormItem>
                         <FormLabel>Nom d'utilisateur</FormLabel>
                         <FormControl>
                             <Input placeholder="shadcn" {...field} />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage/>
                     </FormItem>
                 )}
             />
             <FormField
                 control={form.control}
                 name="email"
-                render={({ field }) => (
+                render={({field}) => (
                     <FormItem>
                         <FormLabel>Addresse E-mail</FormLabel>
                         <FormControl>
                             <Input placeholder="shadcn" {...field} />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage/>
                     </FormItem>
                 )}
             />
             <FormField
                 control={form.control}
                 name="password"
-                render={({ field }) => (
+                render={({field}) => (
                     <FormItem>
                         <FormLabel>Mot de passe</FormLabel>
                         <FormControl>
                             <Input placeholder="shadcn" {...field} />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage/>
                     </FormItem>
                 )}
             />
@@ -100,16 +100,17 @@ export const RegisterForm = () => {
             <FormField
                 control={form.control}
                 name="role"
-                render={({ field }) => (
+                render={({field}) => (
                     <FormItem>
                         <FormLabel>Role</FormLabel>
                         <FormControl>
                             <Input placeholder="shadcn" {...field} />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage/>
                     </FormItem>
                 )}
             />
             <Button className="my-5">Submit</Button>
         </form>
     </Form>
+}
