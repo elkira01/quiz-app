@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import {z} from 'zod';
-import {UserRole} from "@/backend/domain/model/User";
 import {
     Form,
     FormControl,
@@ -15,17 +14,19 @@ import {
 import userController from "@/app/page/user/controller/userController";
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
+import {UserRole} from "@/backend/core/valueObject/UserRole";
+import createUser from "@/backend/ui/user/route";
 
 
 export const RegisterForm = () => {
-    const {registerUser} = userController()
+    // const {registerUser} = userController()
 
     const schema =
         z.object({
             name: z.string(),
             email: z.string().email(),
             password: z.string().min(8).max(20),
-            passwordConfirmation: z.string().min(8).max(20),
+            // passwordConfirmation: z.string().min(8).max(20),
             role: z.enum([UserRole.ADMIN, UserRole.PLAYER]),
         })
 
@@ -33,14 +34,14 @@ export const RegisterForm = () => {
         resolver: zodResolver(schema),
         defaultValues: {
             role: UserRole.ADMIN,
-            passwordConfirmation: '',
+            // passwordConfirmation: '',
             password: '',
             email: '',
             name: '',
         }
     })
 
-    const onSubmit = (data: any) => registerUser(data);
+    const onSubmit = (data: any) => createUser(data);
 
     return<Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -83,19 +84,19 @@ export const RegisterForm = () => {
                     </FormItem>
                 )}
             />
-            <FormField
-                control={form.control}
-                name="passwordConfirmation"
-                render={({ field }) => (
-                    <FormItem>
-                        <FormLabel>Confirmer mot de passe</FormLabel>
-                        <FormControl>
-                            <Input placeholder="shadcn" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                    </FormItem>
-                )}
-            />
+            {/*<FormField*/}
+            {/*    control={form.control}*/}
+            {/*    name="passwordConfirmation"*/}
+            {/*    render={({ field }) => (*/}
+            {/*        <FormItem>*/}
+            {/*            <FormLabel>Confirmer mot de passe</FormLabel>*/}
+            {/*            <FormControl>*/}
+            {/*                <Input placeholder="shadcn" {...field} />*/}
+            {/*            </FormControl>*/}
+            {/*            <FormMessage />*/}
+            {/*        </FormItem>*/}
+            {/*    )}*/}
+            {/*/>*/}
             <FormField
                 control={form.control}
                 name="role"

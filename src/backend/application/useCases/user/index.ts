@@ -1,9 +1,9 @@
-import {IUserRepository} from "@/backend/domain/repository/IUserRepository";
-import {User} from "@/backend/domain/model/User";
+import {IUserRepository} from "@/backend/core/repository/IUserRepository";
+import {IUser} from "@/backend/core/model/IUser";
 
 export const register = async (
     repository: IUserRepository,
-    data: User
+    data: IUser
 ): Promise<any> => {
     return await repository.create(data)
 }
@@ -18,20 +18,20 @@ export const login = async (
 export const fetchOne = async (
     repository: IUserRepository,
     id: any
-): Promise<User | undefined> => {
+): Promise<IUser | undefined> => {
     return await repository.fetchOne(id)
 }
 
 export const fetchAll = async (
     repository: IUserRepository
-): Promise<User[] | undefined> => {
+): Promise<IUser[] | undefined> => {
     return await repository.fetchAll()
 }
 
 export const update = async (
     repository: IUserRepository,
     id: any,
-    data: User
+    data: IUser
 )   :Promise<void> => {
     return await repository.update(id, data)
 }

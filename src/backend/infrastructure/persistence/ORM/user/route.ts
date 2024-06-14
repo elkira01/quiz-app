@@ -1,16 +1,11 @@
-import {IUserRepository} from "@/backend/domain/repository/IUserRepository";
-import {User} from "@/backend/domain/model/User";
-import prismaClient from "@/backend/infrastructure/framework/PrismaClient";
+import prismaClient from "@/lib/PrismaClient";
+import {IUserRepository} from "@/backend/core/repository/IUserRepository";
+import {IUser} from "@/backend/core/model/IUser";
 
 export class UserRepositoryImpl implements IUserRepository {
-    create(data: User): Promise<any> {
+    create(data: IUser): Promise<any> {
         return prismaClient.user.create({
-            data: {
-                name: data.name,
-                email: data.email,
-                password:  data.password,
-                role: data.role,
-            }
+            data: data
         })
     }
 
@@ -30,7 +25,7 @@ export class UserRepositoryImpl implements IUserRepository {
         });
     }
 
-    update(id: any, data: User): Promise<any> {
+    update(id: any, data: IUser): Promise<any> {
         return prismaClient.user.update({
             where: id,
             data: {
