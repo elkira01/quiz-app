@@ -2,7 +2,7 @@ import prismaClient from "@/lib/PrismaClient";
 import {IUserRepository} from "@/backend/core/repository/IUserRepository";
 import {IUser} from "@/backend/core/model/IUser";
 
-export class UserRepositoryImpl implements IUserRepository {
+export default class UserRepositoryImpl implements IUserRepository {
     create(data: IUser): Promise<any> {
         return prismaClient.user.create({
             data: data

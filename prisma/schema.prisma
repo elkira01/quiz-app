@@ -31,6 +31,8 @@ model User {
   categories    QuizCategory[]
   authauredQuiz Quiz[]
   scores        QuizScores[]
+
+  @@unique([email])
 }
 
 model QuizCategory {

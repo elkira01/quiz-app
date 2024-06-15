@@ -10,7 +10,7 @@ export interface IUser {
     updatedAt?: any
 }
 
-interface UserForSelect {
+interface IUserForSelect {
     id: any
     name: any
     email?: any

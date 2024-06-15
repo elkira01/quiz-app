@@ -3,6 +3,10 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import {z} from 'zod';
+import userController from "@/app/page/user/userController";
+import {Button} from "@/components/ui/button";
+import {Input} from "@/components/ui/input";
+import {UserRole} from "@/backend/core/valueObject/UserRole";
 import {
     Form,
     FormControl,
@@ -11,15 +15,11 @@ import {
     FormLabel,
     FormMessage
 } from "@/components/ui/form";
-import userController from "@/app/page/user/controller/userController";
-import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
-import {UserRole} from "@/backend/core/valueObject/UserRole";
-import createUser from "@/backend/ui/user/controller/route";
+import {useEffect} from "react";
 
 
 export const RegisterForm = () => {
-    // const {registerUser} = userController()
+    const {onRegister, user} = userController()
 
     const schema =
         z.object({
@@ -41,7 +41,7 @@ export const RegisterForm = () => {
         }
     })
 
-    const onSubmit = (data: any) => createUser(data);
+    const onSubmit = (data: any) => onRegister(data);
 
     return <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -78,7 +78,7 @@ export const RegisterForm = () => {
                     <FormItem>
                         <FormLabel>Mot de passe</FormLabel>
                         <FormControl>
-                            <Input placeholder="shadcn" {...field} />
+                            <Input type='password' placeholder="shadcn" {...field} />
                         </FormControl>
                         <FormMessage/>
                     </FormItem>

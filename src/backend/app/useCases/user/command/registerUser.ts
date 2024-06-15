@@ -5,5 +5,10 @@ export const registerUserCommand = async (
     repository: IUserRepository,
     data: IUser
 ): Promise<any> => {
-    return repository.create(data)
+    try {
+        return await repository.create(data)
+    }
+    catch (e) {
+       throw new Error(`${e}`);
+    }
 }
