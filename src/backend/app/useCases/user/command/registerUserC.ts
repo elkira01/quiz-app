@@ -1,14 +1,14 @@
 import {IUserRepository} from "@/backend/core/repository/IUserRepository";
 import {IUser} from "@/backend/core/model/IUser";
 
-export const getUserQuery = async (
+export const registerUserC = async (
     repository: IUserRepository,
-    id: any
-): Promise<IUser | undefined> => {
+    data: IUser
+): Promise<any> => {
     try {
-        return await repository.findOne(id)
+        return await repository.create(data)
     }
     catch (e) {
-        throw new Error(`${e}`)
+       throw new Error(`${e}`);
     }
 }

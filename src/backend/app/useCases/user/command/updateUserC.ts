@@ -1,12 +1,16 @@
 import {IUserRepository} from "@/backend/core/repository/IUserRepository";
 import {IUser} from "@/backend/core/model/IUser";
 
-
-export const updateUserCommand = async (
+export const updateUserC = async (
     repository: IUserRepository,
     id: any,
     data: IUser
 )   :Promise<void> => {
-    return await repository.update(id, data)
+    try {
+        return await repository.update(id, data)
+    }
+    catch (e) {
+        throw new Error(`${e}`);
+    }
 }
 
