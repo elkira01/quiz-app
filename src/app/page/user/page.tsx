@@ -13,7 +13,7 @@ import userController from "@/app/page/user/userController";
 import {useEffect} from "react";
 
 export default function User() {
-    const {users, list} = userController()
+    const {users, list, onSelect} = userController()
 
     useEffect(() => {
         list()
@@ -32,7 +32,7 @@ export default function User() {
             </TableHeader>
             <TableBody>
                 {users?.map(u =>
-                    <TableRow>
+                    <TableRow onClick={() => onSelect(u)}>
                         <TableCell className="font-medium">{u.name}</TableCell>
                         <TableCell>{u.email}</TableCell>
                         <TableCell>{u.role}</TableCell>

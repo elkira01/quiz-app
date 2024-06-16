@@ -11,7 +11,9 @@ export default class UserRepositoryImpl implements IUserRepository {
 
     delete(id: any): Promise<any> {
         return prismaClient.user.delete({
-            where: id
+            where: {
+                id: id
+            }
         })
     }
 
@@ -21,13 +23,15 @@ export default class UserRepositoryImpl implements IUserRepository {
 
     findOne(id: any): Promise<any | undefined> {
         return prismaClient.user.findUnique({
-            where: id
+            where: {
+                id: id
+            }
         });
     }
 
     update(id: any, data: IUser): Promise<any> {
         return prismaClient.user.update({
-            where: id,
+            where: {id: id},
             data: {
                 name: data.name,
                 email: data.email,

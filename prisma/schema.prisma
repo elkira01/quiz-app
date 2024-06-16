@@ -1,5 +1,9 @@
-generator client {
+generator gen {
   provider = "prisma-client-js"
+}
+
+generator fakeData {
+  provider = "prisma-generator-fake-data"
 }
 
 datasource db {

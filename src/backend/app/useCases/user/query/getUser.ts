@@ -5,5 +5,10 @@ export const getUserQuery = async (
     repository: IUserRepository,
     id: any
 ): Promise<IUser | undefined> => {
-    return await repository.findOne(id)
+    try {
+        return await repository.findOne(id)
+    }
+    catch (e) {
+        throw new Error(`${e}`)
+    }
 }
