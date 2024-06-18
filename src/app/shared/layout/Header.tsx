@@ -9,11 +9,11 @@ import authController from "@/app/page/user/authentication/authController";
 export default function Header(){
     const {onLogout} = authController()
 
-    return<header className="my-5 md:my-10 flex justify-center items-center py-3 border-b-2 border-b-gray-300">
+    return<header className="my-5 md:my-10 flex justify-center items-center py-3 border-b-[1px] border-b-gray-300">
         <div className='basis-1/3 text-center'>
             <span className="text-4xl font-bold text-red-600">? ? ?</span>
         </div>
-        <nav  className='basis-1/3 border-2 border-gray-300 rounded-[50px] flex justify-center'>
+        <nav  className='basis-1/3 border-[1.5px] border-gray-300 rounded-[50px] flex justify-center'>
             <AppNavigationMenu/>
         </nav>
         <div className='basis-1/3 flex justify-center'>
