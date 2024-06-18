@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import Header from "@/app/shared/layout/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,15 +12,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
         <body className='container contain-content px-5 md:px-10'>
-            <header>
-                <nav>
-                    
-                </nav>
-            </header>
-            {/*{children}*/}
+            <Header/>
+
+            <main>
+            {children}
+            </main>
+
+            <footer className='border-t-2 border-t-gray-300'>gg</footer>
         </body>
     </html>
   );

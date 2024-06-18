@@ -7,5 +7,5 @@ export interface IUserRepository {
 
     findOne(id: any) : any
     findAll() : any
-    findBy(condition: any | any[]): any
+    findByEmail(email: any): any
 }

@@ -1,11 +1,15 @@
 import prismaClient from "@/lib/PrismaClient";
 import {IUserRepository} from "@/backend/core/repository/IUserRepository";
 import {IUser} from "@/backend/core/model/IUser";
+import { SHA256 as sha256 } from "crypto-js";
 
 export default class UserRepositoryImpl implements IUserRepository {
     create(data: IUser): Promise<any> {
         return prismaClient.user.create({
-            data: data
+            data: {
+                ...data,
+                password: sha256(data.password).toString()
+            }
         })
     }
 
@@ -41,9 +45,17 @@ export default class UserRepositoryImpl implements IUserRepository {
         });
     }
 
-    findBy(condition: any): Promise<any[]> {
-        return prismaClient.user.findMany({
-            where: condition
+    findByEmail(email: any): Promise<any> {
+        return prismaClient.user.findUnique({
+            where: {
+                email: email
+            },
+            select: {
+                id: true,
+                email: true,
+                password: true,
+                role: true
+            }
         });
     }
 

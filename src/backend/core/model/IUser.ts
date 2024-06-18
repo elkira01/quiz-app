@@ -15,3 +15,10 @@ interface IUserForSelect {
     name: any
     email?: any
 }
+
+export interface IUserAuth {
+    id?: any
+    name?: string
+    email?: string
+    password: string
+}

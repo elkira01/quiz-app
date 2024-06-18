@@ -1,7 +1,7 @@
 import {useState} from "react";
-import {createUser, fetchAllUser, fetchUser} from "@/backend/ui/user/controller/route";
 import {User} from ".prisma/client";
 import {useRouter} from "next/navigation";
+import {createUser, fetchAllUser, fetchUser} from "@/backend/ui/user/controller/userController";
 
 const UserController = () => {
     const [user, setUser] = useState<User|undefined>()
