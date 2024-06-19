@@ -4,7 +4,7 @@ import {AppNavigationMenu} from "@/app/shared/layout/AppNavigationMenu";
 import {Profile} from "@/app/shared/layout/Profile";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
-import authController from "@/app/page/user/authentication/useAuthController";
+import authController from "@/app/(app)/user/authentication/useAuthController";
 
 export default function Header(){
     const {onLogout} = authController()
@@ -21,7 +21,7 @@ export default function Header(){
                 <Profile/>
             </div>
             <div  className='mx-2 flex items-center'>
-                <Link href='/page/user/authentication/'>
+                <Link href='/user/authentication/'>
                     <Button className='bg-black'>Login page</Button>
                 </Link>
             </div>

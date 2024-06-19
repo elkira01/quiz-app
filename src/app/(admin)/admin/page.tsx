@@ -1,6 +1,6 @@
 'use client'
 
-import useAuthController from "@/app/page/user/authentication/useAuthController";
+import useAuthController from "@/app/(app)/user/authentication/useAuthController";
 import {useEffect} from "react";
 
 export default function AdminPage() {

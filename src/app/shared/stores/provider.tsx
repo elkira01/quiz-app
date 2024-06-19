@@ -2,7 +2,7 @@
 
 import {type ReactNode, createContext, useRef, useContext} from "react";
 import {useStore} from 'zustand'
-import {type AppStore, createAppStore} from "@/app/stores/appStore/appStore";
+import {type AppStore, createAppStore} from "@/app/shared/stores/appStore/appStore";
 
 export type AppStoreApi = ReturnType<typeof createAppStore>
 

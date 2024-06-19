@@ -1,7 +1,7 @@
 import {authenticate, logout} from "@/backend/ui/user/controller/authController";
 import {usePathname} from "next/navigation";
-import {useAppStore} from "@/app/stores/provider";
-import {AppStore} from "@/app/stores/appStore/appStore";
+import {useAppStore} from "@/app/shared/stores/provider";
+import {AppStore} from "@/app/shared/stores/appStore/appStore";
 
 const UseAuthController = () => {
     const pathname = usePathname()

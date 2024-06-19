@@ -1,6 +1,6 @@
 'use client'
 
-import userController from "@/app/page/user/userController";
+import userController from "@/app/(app)/user/userController";
 import {Input} from "@/components/ui/input";
 import {useEffect} from "react";
 import {useParams} from "next/navigation";

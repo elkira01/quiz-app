@@ -13,7 +13,7 @@ import {
     FormLabel,
     FormMessage
 } from "@/components/ui/form";
-import authController from "@/app/page/user/authentication/useAuthController";
+import authController from "@/app/(app)/user/authentication/useAuthController";
 
 
 export const LoginForm = () => {
