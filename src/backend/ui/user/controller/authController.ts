@@ -68,6 +68,5 @@ export const authenticate = async (credentials: IUserAuth) =>  {
 
 export const logout = async (redirectRoute: any) => {
   cookies().delete('authToken');
-
   redirect(redirectRoute);
 }

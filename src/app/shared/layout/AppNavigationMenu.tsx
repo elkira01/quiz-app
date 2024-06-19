@@ -18,6 +18,10 @@ const appMenu: NavItemProps[] = [
         label: "FAQ",
         path: "/page/faq",
     },
+    {
+        label: "Admin",
+        path: "/page/admin",
+    }
 ]
 export function AppNavigationMenu() {
     return (

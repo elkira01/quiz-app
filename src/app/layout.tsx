@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/app/shared/layout/Header";
-import {AppStoreProvider} from "@/app/stores/provider";
+import {StoreProvider} from "@/app/stores/provider";
+import AppLayout from "@/app/shared/layout/AppLayout";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,15 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
         <body className='container contain-content px-5 md:px-10'>
-            <AppStoreProvider>
-                <Header/>
-                <main>
+            <StoreProvider>
+                <AppLayout>
                     {children}
-                </main>
-                <footer className='border-t-2 border-t-gray-300'>
-                    gg
-                </footer>
-            </AppStoreProvider>
+                </AppLayout>
+            </StoreProvider>
         </body>
     </html>
   );
