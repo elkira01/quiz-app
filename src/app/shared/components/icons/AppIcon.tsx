@@ -1,6 +1,6 @@
 'use client'
 
-import {IconCircle} from "@/app/shared/icons/IconCircle";
+import {IconCircle} from "@/app/shared/components/icons/IconCircle";
 
 type AppIconProps = {
     icon?: any

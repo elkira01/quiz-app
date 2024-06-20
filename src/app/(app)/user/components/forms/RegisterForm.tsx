@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import {z} from 'zod';
-import userController from "@/app/page/user/userController";
+import userController from "@/app/(app)/user/userController";
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
 import {UserRole} from "@/backend/core/valueObject/UserRole";

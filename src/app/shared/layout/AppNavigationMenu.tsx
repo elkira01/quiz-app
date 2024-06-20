@@ -12,12 +12,16 @@ const appMenu: NavItemProps[] = [
     },
     {
         label: "Quiz",
-        path: "/page/quiz",
+        path: "/pages/quiz",
     },
     {
         label: "FAQ",
-        path: "/page/faq",
+        path: "/pages/faq",
     },
+    {
+        label: "Admin",
+        path: "/pages/admin",
+    }
 ]
 export function AppNavigationMenu() {
     return (
