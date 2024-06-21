@@ -110,7 +110,7 @@ export const RegisterForm = () => {
                     </FormItem>
                 )}
             />
-            <Button className="my-5">Submit</Button>
+            <Button className="my-5 w-full bg-black">Submit</Button>
         </form>
     </Form>
 }

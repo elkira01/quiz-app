@@ -1,52 +1,39 @@
 'use client'
 
-import {z} from 'zod';
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
 import {Button} from "@/components/ui/button";
+import useQuizManagement from '../../useQuizManagement';
+import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 import {Input} from "@/components/ui/input";
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage
-} from "@/components/ui/form";
-import authController from "@/app/(app)/user/authentication/useAuthController";
-import Link from "next/link";
+import {useForm} from "react-hook-form";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {z} from "zod";
 
-
-export const LoginForm = () => {
-    const {onLogin, user, isAuth} = authController()
+export const RegisterCategoryForm = () => {
+    const {createCategory} = useQuizManagement()
 
     const schema =
         z.object({
-            email: z.string().email(),
-            password: z.string().min(8).max(20),
-    })
+            designation: z.string(),
+            description: z.string(),
+        })
 
     const form = useForm({
         resolver: zodResolver(schema),
         defaultValues: {
-            password: '',
-            email: '',
+            designation: '',
+            description: '',
         }
     })
+    const onSubmit = async (data: any) => createCategory(data)
 
-    const onSubmit = (data: any) => onLogin(data);
-
-    return <Form {...form}>
-        {isAuth === false && <div className='bg-red-300 border-2 border-white rounded-md p-3 my-3 text-center text-white font-bold'>
-            Invalid credentials provided
-        </div>}
+    return<Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='w-full space-y-8' data-js-disable-browser-autofill="on">
             <FormField
                 control={form.control}
-                name="email"
+                name="designation"
                 render={({field}) => (
                     <FormItem>
-                        <FormLabel>Username or e-mail</FormLabel>
+                        <FormLabel>Designation</FormLabel>
                         <FormControl>
                             <Input {...field} />
                         </FormControl>
@@ -56,12 +43,12 @@ export const LoginForm = () => {
             />
             <FormField
                 control={form.control}
-                name="password"
+                name="description"
                 render={({field}) => (
                     <FormItem>
-                        <FormLabel>Password</FormLabel>
+                        <FormLabel>Description</FormLabel>
                         <FormControl>
-                            <Input type='password' {...field} />
+                            <Input {...field} />
                         </FormControl>
                         <FormMessage/>
                     </FormItem>
