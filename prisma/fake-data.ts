@@ -33,6 +33,7 @@ export function fakeQuizCategoryComplete() {
   return {
     id: faker.string.uuid(),
     designation: faker.lorem.words(5),
+    description: '',
     authorId: faker.string.uuid(),
     createdAt: new Date(),
     updatedAt: faker.date.anytime(),

@@ -15,7 +15,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-        <body className='h-[100vh] container contain-content'>
+        <body className='h-[100vh]'>
             <StoreProvider>
                 {children}
             </StoreProvider>

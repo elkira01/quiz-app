@@ -1,6 +1,6 @@
-import AppLayout from "@/app/shared/layout/AppLayout";
+'use client'
 
-
+import AdminLayout from "@/app/(admin)/_components/layout/AdminLayout";
 export default function AdminRootLayout({
   children,
 }: Readonly<{
@@ -8,8 +8,10 @@ export default function AdminRootLayout({
 }>) {
 
   return (
-    <>
-        {children}
-    </>
+    <div className='h-full'>
+        <AdminLayout>
+          {children}
+        </AdminLayout>
+    </div>
   );
 }

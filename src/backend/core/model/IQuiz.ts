@@ -1,12 +1,12 @@
-import {User} from "@/backend/domain/model/User";
-import {QuizDomain} from "@/backend/domain/model/QuizDomain";
+import {IUser} from "./IUser";
+import {IQuizDomain} from "./IQuizDomain";
 
 export interface IQuiz {
     id?: any
     title: string
     level: QuizLevel
-    category: Partial<QuizDomain>
-    author: Partial<User>
+    category: Partial<IQuizDomain>
+    author: Partial<IUser>
     entries?: Partial<QuizQuestion>[] |[]
     createdAt?: any
     updatedAt?: any

@@ -11,7 +11,7 @@ const appMenu: NavItemProps[] = [
     },
     {
         label: "Quiz",
-        path: "/quizz/management",
+        path: "/quizz",
     },
     {
         label: "Admin",

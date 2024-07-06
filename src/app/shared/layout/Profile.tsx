@@ -6,7 +6,7 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 import {AppIcon} from "@/app/shared/components/icons/AppIcon";
-import {OctagonAlert, UserIcon} from "lucide-react";
+import {UserIcon} from "lucide-react";
 
 export function Profile({user}: any) {
 

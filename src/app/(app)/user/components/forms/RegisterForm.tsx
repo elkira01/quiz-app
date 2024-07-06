@@ -50,7 +50,6 @@ export const RegisterForm = () => {
                 name="name"
                 render={({field}) => (
                     <FormItem>
-                        <FormLabel>Nom d'utilisateur</FormLabel>
                         <FormControl>
                             <Input placeholder="shadcn" {...field} />
                         </FormControl>
@@ -63,7 +62,6 @@ export const RegisterForm = () => {
                 name="email"
                 render={({field}) => (
                     <FormItem>
-                        <FormLabel>Addresse E-mail</FormLabel>
                         <FormControl>
                             <Input placeholder="shadcn" {...field} />
                         </FormControl>
@@ -76,7 +74,6 @@ export const RegisterForm = () => {
                 name="password"
                 render={({field}) => (
                     <FormItem>
-                        <FormLabel>Mot de passe</FormLabel>
                         <FormControl>
                             <Input type='password' placeholder="shadcn" {...field} />
                         </FormControl>
@@ -102,7 +99,6 @@ export const RegisterForm = () => {
                 name="role"
                 render={({field}) => (
                     <FormItem>
-                        <FormLabel>Role</FormLabel>
                         <FormControl>
                             <Input placeholder="shadcn" {...field} />
                         </FormControl>
