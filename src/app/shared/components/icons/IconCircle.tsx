@@ -4,7 +4,8 @@ export const IconCircle =  styled.div<any>`
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background-color: rgba(190, 191, 192, 0.25);
+  border: ${props => props.$border ?? ''};
+  background-color: ${props => props.$bgColor ?? 'rgba(190, 191, 192, 0.25)'};
   display: flex;
   align-items: center;
   justify-content: center;
