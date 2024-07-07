@@ -2,46 +2,62 @@ import styled from "styled-components";
 import {theme} from "@/app/(admin)/_theme";
 import Link from "next/link";
 
-export const SideBarContainer = styled.div`
-  padding: 20px;
+export const Container = styled.div`
+  padding: 20px 0 0 0;
   height: 100%;
-  border: solid 0.75px black;
-  //background-color: ${theme.Color.primaryColor};
-`;
-
-export const Logo = styled.div<any>`
-  border: 1px dashed gray;
-  height: 80px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
   
-  @media (max-width: 980px) {
-    height: 50px;
-    font-size: 1.5rem;
+  @media (max-width: 768px) {
+    padding: 10px 0;
   }
 `;
 
-export const Icon = styled.div`
+export const Footer = styled.footer`
+  height: 10%;
+  width: 100%;
+  padding: 20px;
+  border: dashed 0.75px black;
 
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
+export const LogoContainer = styled.div<any>`
+  border: 1px dashed gray;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  @media (max-width: 980px) {
+    height: 50px;
+  }
+`;
 
 export const Menu = styled.nav`
   display: flex;
   flex-direction: column;
-  row-gap: 0.75rem;
+  row-gap: 1rem;
 `;
 
 export const MenuItem = styled.div`
   text-align: center;
   display: flex;
   align-items: center;
+  justify-content: start;
+  column-gap: 0.5rem;
 
   &.hover {
     cursor: pointer;
+  }
+  
+  font-size: 1rem;
+  
+  @media (max-width: 780px) {
+    font-size: 0.9rem;
   }
 `;
 
