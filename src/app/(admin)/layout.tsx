@@ -7,6 +7,7 @@ export default function AdminRootLayout({
   children: React.ReactNode;
 }>) {
 
+
   return (
     <div className='h-full'>
         <AdminLayout>

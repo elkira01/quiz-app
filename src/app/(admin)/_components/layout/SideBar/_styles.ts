@@ -26,7 +26,6 @@ export const Footer = styled.footer`
 `;
 
 export const LogoContainer = styled.div<any>`
-  border: 1px dashed gray;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -37,31 +36,30 @@ export const LogoContainer = styled.div<any>`
   }
 `;
 
-export const Menu = styled.nav`
+export const Menu = styled.nav<any>`
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: 0.85rem;
 `;
 
-export const MenuItem = styled.div`
+export const MenuItem = styled<any>(Link)`
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: start;
   column-gap: 0.5rem;
+  font-size: 1rem;
 
   &.hover {
     cursor: pointer;
   }
-  
-  font-size: 1rem;
   
   @media (max-width: 780px) {
     font-size: 0.9rem;
   }
 `;
 
-export const MenuItemLink = styled<any>(Link)`
+export const MenuLabel = styled.span`
   color: black;
   
   &.hover {

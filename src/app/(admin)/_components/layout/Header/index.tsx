@@ -2,12 +2,12 @@ import * as SC from './_styles';
 import {AlignJustify, Settings} from "lucide-react";
 import SearchInput from "@/app/(admin)/_components/layout/components/SearchInput";
 import {IconCircle} from "@/app/shared/components/icons/IconCircle";
-export function AppHeader({}){
+export function AppHeader({ handleToggle }: { handleToggle?: any}){
 
     return<SC.HeaderContainer>
         <div className='basis-1/5'>
             <IconCircle $bgColor='#ffffff'>
-                <AlignJustify/>
+                <AlignJustify onClick={() => handleToggle ? handleToggle('TOGGLE_MAIN_MENU') : {}}/>
             </IconCircle>
         </div>
         <div className='basis-2/5'>
