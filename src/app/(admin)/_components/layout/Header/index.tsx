@@ -1,5 +1,5 @@
 import * as SC from './_styles';
-import {AlignJustify, Settings} from "lucide-react";
+import {AlignJustify, Settings, User} from "lucide-react";
 import SearchInput from "@/app/(admin)/_components/layout/components/SearchInput";
 import {IconCircle} from "@/app/shared/components/icons/IconCircle";
 export function AppHeader({ handleToggle }: { handleToggle?: any}){
@@ -14,7 +14,9 @@ export function AppHeader({ handleToggle }: { handleToggle?: any}){
             <SearchInput/>
         </div>
         <div className='basis-1/5  flex justify-center'>
-            <IconCircle/>
+            <IconCircle>
+                <User/>
+            </IconCircle>
         </div>
         <div className='basis-1/5 flex justify-center'>
             <IconCircle $bgColor='#ffffff'>

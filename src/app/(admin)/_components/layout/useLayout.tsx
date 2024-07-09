@@ -5,11 +5,14 @@ import {useEffect, useState} from "react";
 function useLayout({ menuItems }: {menuItems: MenuItemType[]}) {
     const [selectedMenu, setSelectedMenu] = useState<any>('')
     const [subMenu, setSubMenu] = useState<any[]>([])
-
     let toggleState = {
         toggledMainMenu: false,
         toggledSubMenu: true,
     }
+
+    useEffect(() => {
+        setSubMenu(() => menuItems?.find((item: any) => item.key === selectedMenu)?.children ?? [])
+    }, [selectedMenu])
 
     const toggleHandler = (state: any, action: any) => {
         switch (action.type) {
@@ -27,12 +30,6 @@ function useLayout({ menuItems }: {menuItems: MenuItemType[]}) {
         }
     }
 
-
-    useEffect(() => {
-        setSubMenu(() => {
-            return menuItems?.find((item: any) => item.key === selectedMenu)?.children ?? []
-        })
-    }, [selectedMenu])
 
     return {
         selectedMenu,

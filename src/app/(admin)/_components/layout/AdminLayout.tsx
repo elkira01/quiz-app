@@ -95,7 +95,7 @@ function MainMenuWrapper(props: { handleMenu: (key: any) => void, toggle: any })
         "md:basis-[5%]": props.toggle?.toggledMainMenu
     }
 
-    return <aside  className={cn("basis-[7%] md:basis-[15%] bg-amber-200", classNames)}>
+    return <aside  className={cn("basis-[7%] md:basis-[15%] bg-gray-200", classNames)}>
         <AppSideBar menuItems={menuList} handleMenu={props.handleMenu}/>
     </aside>;
 }
@@ -106,7 +106,7 @@ function SubMenuWrapper(props: { subMenu: any[], toggle: any }) {
         "md:basis-0": props.toggle?.toggledMainMenu || props.toggle?.toggledSubMenu
     }
 
-    return <aside className={cn("basis-0 md:basis-[10%]  bg-amber-800", classNames)}>
+    return <aside className={cn("basis-0 md:basis-[10%]  bg-gray-50", classNames)}>
         {props.subMenu.length > 0 && <SubMenuBar menuItems={props.subMenu}/>}
     </aside>;
 }
@@ -134,7 +134,7 @@ export default function AdminLayout({ children }: { children: ReactNode }){
                 <SubMenuWrapper subMenu={subMenu} toggle={state}/>
                 <aside className={
                     cn(
-                        'basis-[93%] md:basis-[85%] p-[20px] bg-blue-700',
+                        'basis-[93%] md:basis-[85%] p-[20px] bg-gray-300',
                         {
                             'md:basis-[95%]': state?.toggledMainMenu,
                             'md:basis-[75%]': !state?.toggledSubMenu
