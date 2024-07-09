@@ -28,8 +28,8 @@ export const Footer = styled.footer`
 export const LogoContainer = styled.div<any>`
   height: 80px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: start;
   
   @media (max-width: 980px) {
     height: 50px;
@@ -40,6 +40,13 @@ export const Menu = styled.nav<any>`
   display: flex;
   flex-direction: column;
   row-gap: 0.85rem;
+`;
+
+export const SubMenu = styled.nav<any>`
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.85rem;
+  padding: 1.25rem;
 `;
 
 export const MenuItem = styled<any>(Link)`

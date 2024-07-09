@@ -3,33 +3,16 @@ import {NavigationMenu} from "./components/NavigationMenu";
 import { IconCircle } from "@/app/shared/components/icons/IconCircle";
 import Image from "next/image";
 import {logo} from "@/app/shared/assets";
-import {useContext} from "react";
-import {ToggleContext} from "@/app/(admin)/_components/layout/AdminLayout";
-import {cn} from "@/lib/utils";
-
-
-const Logo = ({ normal, minimal }: { normal: any, minimal: any }) => {
-    const toggle = useContext(ToggleContext)
-
-    return<SC.LogoContainer>
-        <div className={cn('block md:hidden', {'md:block': toggle?.toggledMainMenu})}>
-            <IconCircle>
-                {minimal}
-            </IconCircle>
-        </div>
-        <div className={cn('hidden md:flex text-center px-2', {'md:hidden': toggle?.toggledMainMenu})}>
-            {normal}
-        </div>
-    </SC.LogoContainer>
-}
-
+import {AdminLogo} from "@/app/(admin)/_components/layout/SideBar/components/AdminLogo";
 
 export const AppSideBar = ({ menuItems, handleMenu }: { menuItems: any[], handleMenu: Function }) => {
 
     return<SC.Container>
-        <section className='p-[10px] md:px-[20px]'>
-            <Logo
-                normal={<>
+        <section className='px-[10px] md:px-[20px]'>
+            <AdminLogo
+                minimal={<Image src={logo} alt='Logo' width={100}/>}
+                normal={
+                <>
                     <IconCircle>
                         <Image src={logo} alt='' width={100}/>
                     </IconCircle>
@@ -37,7 +20,6 @@ export const AppSideBar = ({ menuItems, handleMenu }: { menuItems: any[], handle
                         R-Encarta
                     </div>
                 </>}
-                minimal={<Image src={logo} alt='Logo' width={100}/>}
             />
             <div className='mt-10'>
                 <NavigationMenu menuItems={menuItems} onSelect={handleMenu} displayTooltip/>

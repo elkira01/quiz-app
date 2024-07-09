@@ -6,13 +6,5 @@ export default function AdminRootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-
-  return (
-    <div className='h-full'>
-        <AdminLayout>
-          {children}
-        </AdminLayout>
-    </div>
-  );
+  return <AdminLayout children={children}/>
 }

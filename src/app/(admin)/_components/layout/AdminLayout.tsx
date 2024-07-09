@@ -1,130 +1,23 @@
 import React, {createContext, ReactNode, useReducer} from "react";
-import {AppSideBar} from "./SideBar/AppSideBar";
-import {SubMenuBar} from "./SideBar/SubMenuBar";
 import {AppHeader} from "./Header";
-import {Home, Layers2, LayoutDashboard, Menu, Settings} from "lucide-react";
 import useLayout from "./useLayout";
-import {MenuItemType} from "./SideBar/components/NavigationMenu";
 import {cn} from "@/lib/utils";
+import {menuList} from "@/app/(admin)/_config/navigation/menu";
+import {MainMenuWrapper, SubMenuWrapper} from "./SideBar";
 
 export const ToggleContext = createContext<any>({
     toggledMainMenu: false,
     toggledSubMenu: true,
 })
 
-export const menuList : MenuItemType[] = [
-    {
-        label: 'Menu item 1',
-        type: 'menu',
-        icon: <Menu/>,
-        key: 'm-1',
-        children: [
-            {
-                label: 'Sub 1',
-                key: 'Sub 1',
-                path: '/',
-                icon: <Layers2/>
-            },
-            {
-                label: 'Sub 2',
-                key: 'Sub 2',
-                path: '/',
-                icon: <Layers2/>
-            },
-            {
-                label: 'Sub 3',
-                key: 'Sub 3',
-                path: '/',
-                icon: <Layers2/>
-            },
-        ]
-    },
-    {
-        label: 'Menu item 2',
-        path: '/user',
-        icon: <LayoutDashboard/>,
-        key: 'm-2',
-        type: 'link'
-
-    },
-    {
-        label: 'Menu item 3',
-        path: '/admin',
-        icon: <Settings/>,
-        key: 'm-3',
-        type: 'link'
-    },
-    {
-        label: 'Menu item 4',
-        type: 'menu',
-        icon: <Menu/>,
-        key: 'm-4',
-        children: [
-            {
-                label: 'Sub 4',
-                key: 'Sub 4',
-                path: '/',
-                icon: <Layers2/>
-            },
-            {
-                label: 'Sub 5',
-                key: 'Sub 5',
-                path: '/',
-                icon: <Layers2/>
-            },
-            {
-                label: 'Sub 6',
-                key: 'Sub 6',
-                path: '/',
-                icon: <Layers2/>
-            },
-        ]
-    },
-    {
-        label: 'Menu item 2',
-        path: '/admin',
-        icon: <Home/>,
-        key: 'm-5',
-        type: 'link'
-    }
-]
-
-function MainMenuWrapper(props: { handleMenu: (key: any) => void, toggle: any }) {
-
-    const classNames = {
-        "md:basis-[5%]": props.toggle?.toggledMainMenu
-    }
-
-    return <aside  className={cn("basis-[7%] md:basis-[15%] bg-gray-200", classNames)}>
-        <AppSideBar menuItems={menuList} handleMenu={props.handleMenu}/>
-    </aside>;
-}
-
-function SubMenuWrapper(props: { subMenu: any[], toggle: any }) {
-
-    const classNames = {
-        "md:basis-0": props.toggle?.toggledMainMenu || props.toggle?.toggledSubMenu
-    }
-
-    return <aside className={cn("basis-0 md:basis-[10%]  bg-gray-50", classNames)}>
-        {props.subMenu.length > 0 && <SubMenuBar menuItems={props.subMenu}/>}
-    </aside>;
-}
-
 export default function AdminLayout({ children }: { children: ReactNode }){
-    const {
-        setSelectedMenu,
-        toggleHandler,
-        toggleState,
-        subMenu
-    } = useLayout({ menuItems: menuList })
+    const {setSelectedMenu, toggleHandler, toggleState, subMenu} = useLayout({ menuItems: menuList })
     const [state, dispatch] = useReducer(toggleHandler, toggleState)
+    const onToggle = (type: string) => dispatch({type: type})
     const onMenuChange = ( key: any, type?: any) => {
         setSelectedMenu(key)
         dispatch({type: 'TOGGLE_SUBMENU', payload: {...state, toggledSubMenu: type === 'link'}})
     }
-
-    const onToggle = (type: string) => dispatch({type: type})
 
 
     return(

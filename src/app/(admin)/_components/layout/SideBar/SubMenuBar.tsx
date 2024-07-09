@@ -1,7 +1,7 @@
 import React from "react";
-import {MenuItemType} from "./components/NavigationMenu";
 import * as SC from './_styles';
 import {NavigationSubMenu} from "@/app/(admin)/_components/layout/SideBar/components/NavigationSubMenu";
+import {MenuItemType} from "@/app/(admin)/_config/navigation/menu";
 
 export function SubMenuBar(props: { menuItems: MenuItemType[] }) {
 
