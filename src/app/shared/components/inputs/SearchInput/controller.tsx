@@ -1,5 +1,7 @@
 export function useSearch(arg: any){
-    const {searchAction, queryParams, trigger} = arg
+    const {searchAction, queryParams, trigger, widget} = arg
 
-    return{}
+    return{
+        widgetSetup: {show: true, icon: widget?.icon, action: ()=>{}}
+    }
 }

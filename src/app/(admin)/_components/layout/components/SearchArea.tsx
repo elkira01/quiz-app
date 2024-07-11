@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {InputWrapper} from "@/app/shared/components/inputs/_styles";
+import SearchInput from "@/app/shared/components/inputs/SearchInput/SearchInput";
 
 const Container = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ export default function SearchArea({ props }: any){
 
     return <Container>
         <div className='basis-1/5'>
-            <InputWrapper label='okok' $rounded='hight' type='text'></InputWrapper>
+            <SearchInput searchAction={() => {}}/>
         </div>
         {/*<div className='basis-4/5'>*/}
         {/*    <div className='absolute'>*/}

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Input, InputProps} from "@/components/ui/input";
+import {Input} from "@/components/ui/input";
 
 
 export const InputWrapper = styled<any>(Input)`
@@ -10,7 +10,7 @@ export const InputWrapper = styled<any>(Input)`
           props.$rounded == 'medium' ? '14px'
             :
           '20px'
-      : '14px'
+      : props.$borderRadius ?? '14px'
   };
   padding: 14px;
   font-weight: bold;
