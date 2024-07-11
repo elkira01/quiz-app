@@ -1,10 +1,6 @@
 import styled from "styled-components";
+import {IconProps} from "./AppIcon";
 
-type IconProps = {
-    $size?: number
-    $border?: string
-    $bgColor?: string
-}
 
 export const IconCircle =  styled.div<IconProps>`
   width: ${props => props.$size ?? '45px'};
