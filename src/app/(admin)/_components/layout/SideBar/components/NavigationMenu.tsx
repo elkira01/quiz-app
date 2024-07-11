@@ -14,7 +14,7 @@ export const NavigationMenu = ({ menuItems, onSelect, displayTooltip } : { menuI
         {menuItems?.length > 0 && menuItems.map((item) => {
             return displayTooltip ?
                 withTooltip(
-                    <SC.MenuItem href={item.path ?? ''} key={item.key} onClick={() => onSelect(item.key, item.type)}>
+                    <SC.MenuItem href={item.path ?? ''} key={item.key} onClick={() => onSelect(item)}>
                         <IconCircle>
                             {item.icon}
                         </IconCircle>

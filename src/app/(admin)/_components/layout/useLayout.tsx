@@ -1,6 +1,5 @@
-import {MenuItemType} from "./SideBar/components/NavigationMenu";
 import {useEffect, useState} from "react";
-
+import {MenuItemType} from "@/app/(admin)/_config/navigation/menu";
 
 function useLayout({ menuItems }: {menuItems: MenuItemType[]}) {
     const [selectedMenu, setSelectedMenu] = useState<any>('')
@@ -29,7 +28,6 @@ function useLayout({ menuItems }: {menuItems: MenuItemType[]}) {
                 console.log('')
         }
     }
-
 
     return {
         selectedMenu,

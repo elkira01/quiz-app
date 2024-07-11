@@ -6,7 +6,7 @@ export function AppHeader({ handleToggle }: { handleToggle?: any}){
 
     return<SC.HeaderContainer>
         <div className='basis-[5%]'>
-            <IconCircle $bgColor='#ffffff'>
+            <IconCircle $bgColor='inherit'>
                 <AlignJustify onClick={() => handleToggle ? handleToggle('TOGGLE_MAIN_MENU') : {}}/>
             </IconCircle>
         </div>

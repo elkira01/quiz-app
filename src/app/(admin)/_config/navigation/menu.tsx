@@ -1,4 +1,4 @@
-import {Home, Layers2, LayoutDashboard, Menu, Settings} from "lucide-react";
+import {Dot, Equal, Home, Layers2, LayoutDashboard, Menu, Settings} from "lucide-react";
 
 export type MenuItemType = {
     label: string
@@ -18,20 +18,36 @@ export const menuList : MenuItemType[] = [
             {
                 label: 'Sub 1',
                 key: 'Sub 1',
-                path: '/',
-                icon: <Layers2/>
+                type: "menu",
+                icon: <Equal size={15}/>,
+                children: [
+                    {
+                        label: 'Sub 1.1',
+                        key: 'Sub 1.1',
+                        path: '/',
+                        icon: <Dot/>,
+                    },
+                    {
+                        label: 'Sub 1.2',
+                        key: 'Sub 1.2',
+                        path: '/',
+                        icon: <Dot/>,
+                    },
+                ]
             },
             {
                 label: 'Sub 2',
                 key: 'Sub 2',
                 path: '/',
-                icon: <Layers2/>
+                icon: <Equal size={15}/>,
+
             },
             {
                 label: 'Sub 3',
                 key: 'Sub 3',
                 path: '/',
-                icon: <Layers2/>
+                icon: <Equal size={15}/>,
+
             },
         ]
     },
@@ -52,19 +68,20 @@ export const menuList : MenuItemType[] = [
                 label: 'Sub 4',
                 key: 'Sub 4',
                 path: '/',
-                icon: <Layers2/>
+                icon: <Equal size={15}/>,
             },
             {
                 label: 'Sub 5',
                 key: 'Sub 5',
                 path: '/',
-                icon: <Layers2/>
+                icon: <Equal size={15}/>,
             },
             {
                 label: 'Sub 6',
                 key: 'Sub 6',
                 path: '/',
-                icon: <Layers2/>
+                icon: <Equal size={15}/>,
+
             },
         ]
     },
