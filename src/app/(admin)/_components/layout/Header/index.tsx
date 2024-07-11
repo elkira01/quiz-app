@@ -1,5 +1,5 @@
 import * as SC from './_styles';
-import {AlignJustify, Settings, User} from "lucide-react";
+import {AlignJustify} from "lucide-react";
 import SearchArea from "@/app/(admin)/_components/layout/components/SearchArea";
 import React from "react";
 import {AppIcon} from "@/app/shared/components/icons/AppIcon";
@@ -17,7 +17,7 @@ export function AppHeader(
 }: { handleToggle?: any, content?: ContentProps[]}){
 
     return<SC.HeaderContainer>
-        <div className='basis-[5%]'>
+        <div className='basis-[3%]'>
             <AppIcon
                 shape='circle'
                 $bgColor='inherit'
@@ -25,7 +25,7 @@ export function AppHeader(
                 icon={<AlignJustify/>}
             />
         </div>
-        <div className='basis-[25%]'>
+        <div className='basis-[27%]'>
             <SearchArea/>
         </div>
         <div className='basis-[70%] flex justify-end'>

@@ -1,11 +1,8 @@
 import styled from "styled-components";
 import {Input, InputProps} from "@/components/ui/input";
 
-interface StyledInputProps extends InputProps{
-    $rounded?: 'light'|'medium'|'high'
-    $width?: any
-}
-export const InputWrapper = styled<StyledInputProps & any>(Input)`
+
+export const InputWrapper = styled<any>(Input)`
   width: ${props => props.$width ?? '100%'};
   border-radius: ${(props) => props.$rounded ?
           props.$rounded == 'light' ? '8px'
@@ -16,7 +13,6 @@ export const InputWrapper = styled<StyledInputProps & any>(Input)`
       : '14px'
   };
   padding: 14px;
-  background-color: rgb(255,255,255, 0.8);
   font-weight: bold;
   font-size: 1rem;
   font-family: "Yu Gothic Medium",monospace;
