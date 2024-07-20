@@ -12,9 +12,9 @@ export const InputWrapper = styled<any>(Input)`
           '20px'
       : props.$borderRadius ?? '14px'
   };
-  padding: 14px;
-  font-weight: bold;
+  
+  padding: 15px;
   font-size: 1rem;
   font-family: "Yu Gothic Medium",monospace;
-  letter-spacing: 0.85px;
+  letter-spacing: 0.5px;
 `

@@ -30,12 +30,12 @@ function useLayout({ menuItems }: {menuItems: MenuItemType[]}) {
     }
 
     return {
-        selectedMenu,
         subMenu,
         toggleState,
+        selectedMenu,
         setSelectedMenu,
-        setSubMenu,
         toggleHandler,
+        setSubMenu,
     }
 }
 

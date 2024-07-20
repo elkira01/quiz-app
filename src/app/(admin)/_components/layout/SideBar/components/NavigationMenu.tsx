@@ -3,7 +3,7 @@ import * as SC from '../_styles';
 import {cn} from "@/lib/utils";
 import {IconCircle} from "@/app/shared/components/icons/IconCircle";
 import {withTooltip} from "@/app/shared/components/utils/withTooltip";
-import {ToggleContext} from "@/app/(admin)/_components/layout/AdminLayout";
+import {ToggleContext} from "@/app/(admin)/_components/layout/AdminDashboardLayout";
 import {MenuItemType} from "@/app/(admin)/_config/navigation/menu";
 
 

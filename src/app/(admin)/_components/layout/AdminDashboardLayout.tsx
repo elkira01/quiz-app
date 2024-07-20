@@ -2,7 +2,7 @@ import React, {createContext, ReactNode, useReducer} from "react";
 import {AppHeader} from "./Header";
 import useLayout from "./useLayout";
 import {cn} from "@/lib/utils";
-import {menuList} from "@/app/(admin)/_config/navigation/menu";
+import {MenuItemType} from "@/app/(admin)/_config/navigation/menu";
 import {MainMenuWrapper, SubMenuWrapper} from "./SideBar";
 
 export const ToggleContext = createContext<any>({
@@ -10,16 +10,19 @@ export const ToggleContext = createContext<any>({
     toggledSubMenu: true,
 })
 
-export default function AdminLayout({ children }: { children: ReactNode }){
-    const {setSelectedMenu, toggleHandler, toggleState, subMenu} = useLayout({ menuItems: menuList })
+interface LayoutProps {
+    children: ReactNode
+    mainMenu: MenuItemType[]
+}
+
+export default function DashboardLayout({ children, mainMenu }: LayoutProps){
+    const {setSelectedMenu, toggleHandler, toggleState, subMenu} = useLayout({ menuItems: mainMenu })
     const [state, dispatch] = useReducer(toggleHandler, toggleState)
     const onToggle = (type: string) => dispatch({type: type})
     const onMenuChange = ( menuItem: any) => {
         setSelectedMenu(menuItem.key)
         dispatch({type: 'TOGGLE_SUBMENU', payload: {...state, toggledSubMenu: menuItem.type === 'link'}})
     }
-
-
 
     return(
         <ToggleContext.Provider value={state}>

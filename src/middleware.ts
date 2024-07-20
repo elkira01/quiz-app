@@ -7,7 +7,7 @@ export default function middleware(request: NextRequest) {
     const authToken = request.cookies.get('authToken')?.value
 
     if (!authToken && pathname.startsWith('/admin')) {
-        return Response.redirect(new URL('/auth', request.url))
+        return Response.redirect(new URL('/dashboard', request.url))
     }
 
     // if (pathname.startsWith('/')) {

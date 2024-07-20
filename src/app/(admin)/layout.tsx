@@ -1,10 +1,14 @@
 'use client'
 
-import AdminLayout from "@/app/(admin)/_components/layout/AdminLayout";
+import DashboardLayout from "@/app/(admin)/_components/layout/AdminDashboardLayout";
+import {menuList} from "@/app/(admin)/_config/navigation/menu";
 export default function AdminRootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <AdminLayout children={children}/>
+  return <DashboardLayout
+        children={children}
+        mainMenu={menuList}
+  />
 }

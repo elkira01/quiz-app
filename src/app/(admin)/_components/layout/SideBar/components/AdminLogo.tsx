@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {ToggleContext} from "@/app/(admin)/_components/layout/AdminLayout";
+import {ToggleContext} from "@/app/(admin)/_components/layout/AdminDashboardLayout";
 import * as SC from "@/app/(admin)/_components/layout/SideBar/_styles";
 import {cn} from "@/lib/utils";
 import {IconCircle} from "@/app/shared/components/icons/IconCircle";

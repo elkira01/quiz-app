@@ -1,7 +1,7 @@
 import * as SC from "../_styles";
 import {cn} from "@/lib/utils";
 import {useContext} from "react";
-import {ToggleContext} from "@/app/(admin)/_components/layout/AdminLayout";
+import {ToggleContext} from "@/app/(admin)/_components/layout/AdminDashboardLayout";
 import {MenuItemType} from "@/app/(admin)/_config/navigation/menu";
 import { Undo2} from "lucide-react";
 
