@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {theme} from "@/app/(admin)/_theme";
+import theme from "@/app/(admin)/_theme";
 import Link from "next/link";
 
 export const Container = styled.div`

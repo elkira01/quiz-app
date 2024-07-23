@@ -18,7 +18,9 @@ interface LayoutProps {
 export default function DashboardLayout({ children, mainMenu }: LayoutProps){
     const {setSelectedMenu, toggleHandler, toggleState, subMenu} = useLayout({ menuItems: mainMenu })
     const [state, dispatch] = useReducer(toggleHandler, toggleState)
-    const onToggle = (type: string) => dispatch({type: type})
+    const aToggle = (type: string) => dispatch({type: type})
+
+    const bToggle = () => dispatch({type: 'TOGGLE_SUBMENU', payload: {...state, toggledSubMenu: true}})
     const onMenuChange = ( menuItem: any) => {
         setSelectedMenu(menuItem.key)
         dispatch({type: 'TOGGLE_SUBMENU', payload: {...state, toggledSubMenu: menuItem.type === 'link'}})
@@ -32,17 +34,12 @@ export default function DashboardLayout({ children, mainMenu }: LayoutProps){
                 <aside id='admin-content'
                     className={
                     cn(
-                        'basis-[93%] md:basis-[85%] p-[20px] bg-gray-300',
-                        {
-                            'md:basis-[95%]': state?.toggledMainMenu,
-                            'md:basis-[75%]': !state?.toggledSubMenu
-                        })}
+                        'basis-[93%] md:basis-[85%] p-[20px] flex flex-col justify-center gap-y-20 bg-gray-400',
+                        { 'md:basis-[95%]': state?.toggledMainMenu, 'md:basis-[75%]': !state?.toggledSubMenu }
+                    )}
                 >
-                    <AppHeader
-                        handleToggle={onToggle}
-                        content={[]}
-                    />
-                    <div onClick={() => dispatch({type: 'TOGGLE_SUBMENU', payload: {...state, toggledSubMenu: true}})}>
+                    <AppHeader handleToggle={aToggle} content={[]}/>
+                    <div onClick={bToggle} className='w-full h-full flex justify-center'>
                         {children}
                     </div>
                 </aside>
