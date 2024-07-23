@@ -2,7 +2,12 @@ import styled from "styled-components";
 import theme from "@/app/(admin)/_theme";
 import Link from "next/link";
 
-export const Container = styled.div`
+export const FixedContainer = styled.div`
+  position: absolute;
+  width: fit-content;
+  height: 100vh;
+`
+export const SidebarContainer = styled.div`
   padding: 20px 0 0 0;
   height: 100%;
   display: flex;
@@ -15,7 +20,7 @@ export const Container = styled.div`
 `;
 
 export const Footer = styled.footer`
-  height: 10%;
+  height: 100px;
   width: 100%;
   padding: 20px;
   border: dashed 0.75px black;

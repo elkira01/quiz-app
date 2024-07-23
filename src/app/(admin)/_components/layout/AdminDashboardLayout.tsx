@@ -4,6 +4,7 @@ import useLayout from "./useLayout";
 import {cn} from "@/lib/utils";
 import {MenuItemType} from "@/app/(admin)/_config/navigation/menu";
 import {MainMenuWrapper, SubMenuWrapper} from "./SideBar";
+import * as SC from './SideBar/_styles';
 
 export const ToggleContext = createContext<any>({
     toggledMainMenu: false,
@@ -28,13 +29,13 @@ export default function DashboardLayout({ children, mainMenu }: LayoutProps){
 
     return(
         <ToggleContext.Provider value={state}>
-            <div className='w-full h-full flex justify-between'>
+            <div className='w-full flex justify-between min-h-[100vh]'>
                 <MainMenuWrapper handleMenu={onMenuChange} toggle={state}/>
                 <SubMenuWrapper subMenu={subMenu} toggle={state}/>
                 <aside id='admin-content'
                     className={
                     cn(
-                        'basis-[93%] md:basis-[85%] p-[20px] flex flex-col justify-center gap-y-20 bg-gray-400',
+                        'basis-[93%] md:basis-[85%] p-[20px] flex flex-col justify-center gap-y-20 bg-green-900',
                         { 'md:basis-[95%]': state?.toggledMainMenu, 'md:basis-[75%]': !state?.toggledSubMenu }
                     )}
                 >

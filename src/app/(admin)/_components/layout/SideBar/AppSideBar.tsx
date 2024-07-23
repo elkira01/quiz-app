@@ -7,7 +7,7 @@ import {AdminLogo} from "@/app/(admin)/_components/layout/SideBar/components/Adm
 
 export const AppSideBar = ({ menuItems, handleMenu }: { menuItems: any[], handleMenu: Function }) => {
 
-    return<SC.Container>
+    return<SC.SidebarContainer>
         <section className='px-[10px] md:px-[20px]'>
             <AdminLogo
                 minimal={<Image src={logo} alt='Logo' width={100}/>}
@@ -28,5 +28,5 @@ export const AppSideBar = ({ menuItems, handleMenu }: { menuItems: any[], handle
         <SC.Footer>
             F
         </SC.Footer>
-    </SC.Container>
+    </SC.SidebarContainer>
 }

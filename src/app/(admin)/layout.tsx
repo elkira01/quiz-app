@@ -8,9 +8,8 @@ export default function AdminRootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <DashboardLayout
-          children={children}
-          mainMenu={menuList}
-      />
+      <DashboardLayout mainMenu={menuList}>
+          {children}
+      </DashboardLayout>
   )
 }

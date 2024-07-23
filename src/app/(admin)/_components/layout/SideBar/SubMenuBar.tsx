@@ -26,12 +26,12 @@ export function SubMenuBar(props: { menuItems: MenuItemType[] }) {
         setCurrentSubMenu(props.menuItems)
     }
 
-    return <SC.Container>
+    return <SC.SidebarContainer>
         <NavigationSubMenu
             menuItems={currentSubMenu}
             onSelect={onClick}
             backBtn={backBtn}
             handleBackBtn={handleBackBtn}
         />
-    </SC.Container>
+    </SC.SidebarContainer>
 }
