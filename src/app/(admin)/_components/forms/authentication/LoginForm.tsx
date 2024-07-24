@@ -4,7 +4,6 @@ import {z} from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
 import {
     Form,
     FormControl,
@@ -14,9 +13,7 @@ import {
     FormMessage
 } from "@/components/ui/form";
 import authController from "@/app/(app)/user/authentication/useAuthController";
-import {Row} from "@/app/shared/components/form/_components/Row";
-import {Col} from "@/app/shared/components/form/_components/Col";
-import {FormRow} from "@/app/shared/components/form/_components/FormRow";
+import {default as Input} from "@/app/shared/components/inputs/BaseInput";
 
 
 const LoginForm = () => {
@@ -45,8 +42,8 @@ const LoginForm = () => {
             </div>
         }
         <form onSubmit={form.handleSubmit(onSubmit)} className='w-full space-y-8' data-js-disable-browser-autofill="on">
-            <Row $justify='space-between' $gutter={[3]}>
-                <Col $sm={6}>
+            <div className='flex flex-wrap justify-between gap-x-[3%] gap-y-3'>
+                <div className='basis-full'>
                     <FormField
                         control={form.control}
                         name="email"
@@ -54,14 +51,14 @@ const LoginForm = () => {
                             <FormItem>
                                 <FormLabel>Username or e-mail</FormLabel>
                                 <FormControl>
-                                    <Input {...field} />
+                                    <Input {...field} type='text'/>
                                 </FormControl>
                                 <FormMessage/>
                             </FormItem>
                         )}
                     />
-                </Col>
-                <Col $sm={6}>
+                </div>
+                <div className='basis-full'>
                     <FormField
                         control={form.control}
                         name="password"
@@ -69,30 +66,17 @@ const LoginForm = () => {
                             <FormItem>
                                 <FormLabel>Password</FormLabel>
                                 <FormControl>
-                                    <Input type='password' {...field} />
+                                    <Input {...field} type='password' />
                                 </FormControl>
                                 <FormMessage/>
                             </FormItem>
                         )}
                     />
-                </Col>
-                <Col $sm={12}>
-                    <FormField
-                        control={form.control}
-                        name="password"
-                        render={({field}) => (
-                            <FormItem>
-                                <FormLabel>Password</FormLabel>
-                                <FormControl>
-                                    <Input type='password' {...field} />
-                                </FormControl>
-                                <FormMessage/>
-                            </FormItem>
-                        )}
-                    />
-                </Col>
-            </Row>
-            <Button className="my-5 w-full bg-black">Login</Button>
+                </div>
+                <div className='basis-full'>
+                    <Button className="my-5 w-full bg-black">Login</Button>
+                </div>
+            </div>
         </form>
     </Form>
 }
