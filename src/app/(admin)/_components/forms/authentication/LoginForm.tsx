@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form"
 import {Button} from "@/components/ui/button";
 import {Form,} from "@/components/ui/form";
 import authController from "@/app/(app)/user/authentication/useAuthController";
-import {FormInput} from "@/app/shared/components/form/inputs";
+import {DateInput, FormInput} from "@/app/shared/components/form/inputs";
 
 
 const LoginForm = () => {
@@ -15,7 +15,7 @@ const LoginForm = () => {
     const schema =
         z.object({
             email: z.string().email(),
-            password: z.string().min(8).max(20),
+            password: z.string().date(),
         })
 
     const form = useForm({
@@ -26,7 +26,7 @@ const LoginForm = () => {
         }
     })
 
-    const onSubmit = (data: any) => onLogin(data);
+    const onSubmit = (data: any) => console.log(data);
 
     return <Form {...form}>
         {isAuth === false &&
@@ -45,11 +45,10 @@ const LoginForm = () => {
                     />
                 </div>
                 <div className='basis-full'>
-                    <FormInput
+                    <DateInput
                         formControl={form.control}
                         label='Password'
                         name='password'
-                        inputType='password'
                     />
                 </div>
                 <div className='basis-full'>
