@@ -14,8 +14,9 @@ import {
     FormMessage
 } from "@/components/ui/form";
 import authController from "@/app/(app)/user/authentication/useAuthController";
-import {FormRow} from "@/app/shared/components/form/_components/FormRow";
+import {Row} from "@/app/shared/components/form/_components/Row";
 import {Col} from "@/app/shared/components/form/_components/Col";
+import {FormRow} from "@/app/shared/components/form/_components/FormRow";
 
 
 const LoginForm = () => {
@@ -44,8 +45,8 @@ const LoginForm = () => {
             </div>
         }
         <form onSubmit={form.handleSubmit(onSubmit)} className='w-full space-y-8' data-js-disable-browser-autofill="on">
-            <FormRow $justify='space-between' $gutter={[3,6]}>
-                <Col $sm={6} $md={8} $lg={10}>
+            <Row $justify='space-between' $gutter={[3]}>
+                <Col $sm={6}>
                     <FormField
                         control={form.control}
                         name="email"
@@ -75,7 +76,7 @@ const LoginForm = () => {
                         )}
                     />
                 </Col>
-                <Col $sm={6}>
+                <Col $sm={12}>
                     <FormField
                         control={form.control}
                         name="password"
@@ -90,7 +91,7 @@ const LoginForm = () => {
                         )}
                     />
                 </Col>
-            </FormRow>
+            </Row>
             <Button className="my-5 w-full bg-black">Login</Button>
         </form>
     </Form>
