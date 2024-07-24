@@ -21,8 +21,9 @@ function appendWidget({show, icon, action}: {show : boolean, icon?: any, action?
     return(
         <button
             className={
-            cn('basis-[15%] hidden border-l-[1px] border-l-black bg-black rounded-e-[20px] hover:opacity-85',
-            { 'flex justify-center items-center': show })}
+                cn('basis-[15%] hidden border-l-[1px] border-l-black bg-black rounded-e-[20px] hover:opacity-85',
+                { 'flex justify-center items-center': show }
+            )}
             onClick={action}
         >
             {icon ?? <Search size={20} color='#ffffff'/>}
