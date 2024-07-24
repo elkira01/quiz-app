@@ -4,20 +4,13 @@ import {z} from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import {Button} from "@/components/ui/button";
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage
-} from "@/components/ui/form";
+import {Form,} from "@/components/ui/form";
 import authController from "@/app/(app)/user/authentication/useAuthController";
-import {default as Input} from "@/app/shared/components/inputs/BaseInput";
+import {FormInput} from "@/app/shared/components/form/inputs";
 
 
 const LoginForm = () => {
-    const {onLogin, user, isAuth} = authController()
+    const {onLogin, isAuth} = authController()
 
     const schema =
         z.object({
@@ -44,33 +37,19 @@ const LoginForm = () => {
         <form onSubmit={form.handleSubmit(onSubmit)} className='w-full space-y-8' data-js-disable-browser-autofill="on">
             <div className='flex flex-wrap justify-between gap-x-[3%] gap-y-3'>
                 <div className='basis-full'>
-                    <FormField
-                        control={form.control}
-                        name="email"
-                        render={({field}) => (
-                            <FormItem>
-                                <FormLabel>Username or e-mail</FormLabel>
-                                <FormControl>
-                                    <Input {...field} type='text'/>
-                                </FormControl>
-                                <FormMessage/>
-                            </FormItem>
-                        )}
+                    <FormInput
+                        formControl={form}
+                        label='User mail'
+                        name='email'
+                        inputType='email'
                     />
                 </div>
                 <div className='basis-full'>
-                    <FormField
-                        control={form.control}
-                        name="password"
-                        render={({field}) => (
-                            <FormItem>
-                                <FormLabel>Password</FormLabel>
-                                <FormControl>
-                                    <Input {...field} type='password' />
-                                </FormControl>
-                                <FormMessage/>
-                            </FormItem>
-                        )}
+                    <FormInput
+                        formControl={form.control}
+                        label='Password'
+                        name='password'
+                        inputType='password'
                     />
                 </div>
                 <div className='basis-full'>

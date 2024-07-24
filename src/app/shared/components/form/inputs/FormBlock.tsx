@@ -5,14 +5,14 @@ interface FormBlockProps {
     label: string
     name: string
     Component?: any
-    itemProps?: { className: string }
+    itemProps?: any
     noFormBlock?: boolean
 }
 
 const FormBlock =  (
 {
     formControl,
-    Component = null,
+    Component,
     itemProps = { className: ''},
     noFormBlock = false,
    ...props
@@ -22,13 +22,13 @@ const FormBlock =  (
         <FormField
             control={formControl.control}
             name={props.name}
-            render={(field) =>
+            render={({field}) =>
                 <FormItem>
                     <FormLabel>
                         {props.label}
                     </FormLabel>
                     <FormControl>
-                        <Component {...field} {...itemProps}/>
+                        <Component {...field} {...props} {...itemProps}/>
                     </FormControl>
                     <FormMessage/>
                 </FormItem>
@@ -43,6 +43,6 @@ export const withFormBlock = <T = any>(Component: any, itemProps?: any) => {
             return <Component {...props}/>
         }
 
-        return <FormBlock {...props} itemProps={itemProps}/>
+        return <FormBlock Component={Component} {...props} itemProps={itemProps}/>
     }
 }
