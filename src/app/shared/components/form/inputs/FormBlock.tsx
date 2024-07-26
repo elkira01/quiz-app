@@ -1,4 +1,4 @@
-import {FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
+import {FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 
 interface FormBlockProps {
     formControl: any
@@ -7,6 +7,7 @@ interface FormBlockProps {
     Component?: any
     itemProps?: any
     noFormBlock?: boolean
+    description?: any
 }
 
 const FormBlock =  (
@@ -14,7 +15,6 @@ const FormBlock =  (
     formControl,
     Component,
     itemProps = { className: ''},
-    noFormBlock = false,
    ...props
 }: FormBlockProps) => {
 
@@ -30,6 +30,9 @@ const FormBlock =  (
                     <FormControl>
                         <Component {...field} {...props} {...itemProps}/>
                     </FormControl>
+                    <FormDescription>
+                        {props.description}
+                    </FormDescription>
                     <FormMessage/>
                 </FormItem>
             }

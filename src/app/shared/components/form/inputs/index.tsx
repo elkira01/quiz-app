@@ -1,6 +1,6 @@
-import TextInput, {TextInputProps} from "@/app/shared/components/form/inputs/TextInput";
 import {withFormBlock} from "@/app/shared/components/form/inputs/FormBlock";
-import DateTime, {DateTimeProps} from "@/app/shared/components/form/inputs/DateTime";
+import TextInput, {TextInputProps} from "@/app/shared/components/form/inputs/TextInput";
+import DatePicker, {DateInputProps} from "@/app/shared/components/form/inputs/DateInput";
 
 export const FormInput = withFormBlock<TextInputProps>(TextInput);
-export const DateInput = withFormBlock<DateTimeProps>(DateTime)
+export const DateInput = withFormBlock<DateInputProps>(DatePicker);

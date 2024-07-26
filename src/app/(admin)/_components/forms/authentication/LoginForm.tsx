@@ -10,19 +10,19 @@ import {DateInput, FormInput} from "@/app/shared/components/form/inputs";
 
 
 const LoginForm = () => {
-    const {onLogin, isAuth} = authController()
+    const { isAuth} = authController()
 
     const schema =
         z.object({
             email: z.string().email(),
-            password: z.string().date(),
+            date: z.date(),
         })
 
     const form = useForm({
         resolver: zodResolver(schema),
         defaultValues: {
-            password: '',
-            email: '',
+            date: new Date(),
+            email: 'Elkira01@h.com',
         }
     })
 
@@ -46,9 +46,10 @@ const LoginForm = () => {
                 </div>
                 <div className='basis-full'>
                     <DateInput
-                        formControl={form.control}
-                        label='Password'
-                        name='password'
+                        formControl={form}
+                        label='Date'
+                        name='date'
+                        noFormBlock
                     />
                 </div>
                 <div className='basis-full'>

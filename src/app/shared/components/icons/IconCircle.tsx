@@ -11,7 +11,6 @@ export const IconCircle =  styled.div<IconProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-white);
   font-size: 20px;
   cursor: pointer;
 `
