@@ -8,7 +8,7 @@ export interface SelectInputProps extends InputProps {
     label: any,
     description?: any
     placeholder?: string
-    optionsItems?: Array<{ value: string|undefined, label: string }>
+    optionsItems?: Array<{ value: any|undefined, label: string }>
 }
 const SelectInput = (
 {
