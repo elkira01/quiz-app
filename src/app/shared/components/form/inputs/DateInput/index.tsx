@@ -49,6 +49,7 @@ export default function DatePicker({ formControl, name, label, description, ...p
                         </PopoverTrigger>
                         <PopoverContent align='end'>
                             <Calendar
+                                mode='single'
                                 selected={field.value}
                                 onSelect={field.onChange}
                                 // disabled={(date) =>

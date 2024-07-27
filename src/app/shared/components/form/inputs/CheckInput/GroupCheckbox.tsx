@@ -1,4 +1,4 @@
-import {FormControl, FormField, FormItem, FormLabel} from "@/components/ui/form";
+import {FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 import {Checkbox} from "@/components/ui/checkbox";
 
 export interface GroupCheckboxProps {
@@ -9,42 +9,49 @@ export interface GroupCheckboxProps {
 const GroupCheckbox = ({items, formControl, ...props}: GroupCheckboxProps) => {
 
     return<>
-        {items.map((item) => {
-            const idKey = item.id ?? item.key;
-
-            return(
-                <FormField
-                    key={idKey}
-                    control={formControl.control}
-                    name={props.name}
-                    render={({ field }) => {
-                        return (
-                            <FormItem
-                                key={item.id}
-                                className="flex flex-row items-start space-x-3 space-y-0"
-                            >
-                                <FormControl>
-                                    <Checkbox
-                                        checked={field.value?.includes(idKey)}
-                                        onCheckedChange={(checked) => {
-                                            return checked
-                                                ? field.onChange([...field.value, idKey])
-                                                : field.onChange(
-                                                    field.value?.filter(
-                                                        (value: any) => value !== idKey
-                                                    )
-                                                )
-                                        }}
-                                    />
-                                </FormControl>
-                                <FormLabel className="text-sm font-normal">
-                                    {item.label}
-                                </FormLabel>
-                            </FormItem>
-                        )
-                    }}
-                />
-            )
-        })}
+        <FormField
+            control={formControl.control}
+            name={props.name}
+            render={() => (
+                <FormItem>
+                    {items.map((item) => (
+                        <FormField
+                            key={item.id ?? item.key}
+                            control={formControl.control}
+                            name="items"
+                            render={({ field }) => {
+                                return (
+                                    <FormItem
+                                        key={item.id ?? item.key}
+                                        className="flex flex-row items-start space-x-3 space-y-0"
+                                    >
+                                        <FormControl>
+                                            <Checkbox
+                                                checked={field.value?.includes(item.id)}
+                                                onCheckedChange={(checked) => {
+                                                    return checked
+                                                        ? field.onChange([...field.value, item.id ?? item.key])
+                                                        : field.onChange(
+                                                            field.value?.filter(
+                                                                (value: any) => value !== (item.id ?? item.key)
+                                                            )
+                                                        )
+                                                }}
+                                            />
+                                        </FormControl>
+                                        <FormLabel className="text-sm font-normal">
+                                            {item.label}
+                                        </FormLabel>
+                                    </FormItem>
+                                )
+                            }}
+                        />
+                    ))}
+                    <FormMessage />
+                </FormItem>
+            )}
+        />
     </>
 }
+
+export default GroupCheckbox;

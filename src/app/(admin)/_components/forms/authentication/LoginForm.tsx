@@ -6,7 +6,14 @@ import { useForm } from "react-hook-form"
 import {Button} from "@/components/ui/button";
 import {Form,} from "@/components/ui/form";
 import authController from "@/app/(app)/user/authentication/useAuthController";
-import {DateInput, FormInput, Number, FormSelect, FormTextArea} from "@/app/shared/components/form/inputs";
+import {
+    DateInput,
+    FormInput,
+    Number,
+    FormSelect,
+    FormTextArea,
+    FormCheckbox, GroupFormCheckbox
+} from "@/app/shared/components/form/inputs";
 
 const LoginForm = () => {
     const { isAuth} = authController()
@@ -15,9 +22,10 @@ const LoginForm = () => {
         z.object({
             email: z.string().email(),
             date: z.date(),
-            amount: z.coerce.number().min(0),
-            mode: z.string(),
-            description: z.string()
+            enabled: z.boolean(),
+            items: z.array(z.coerce.string()).refine((value) => value.some((item) => item), {
+                message: "You have to select at least one item.",
+            }),
         })
 
     const form = useForm({
@@ -25,8 +33,8 @@ const LoginForm = () => {
         defaultValues: {
             date: new Date(),
             email: 'Elkira01@h.com',
-            amount: 0,
-            mode: ''
+            enabled: false,
+            items: [],
         }
     })
 
@@ -56,31 +64,20 @@ const LoginForm = () => {
                         noFormBlock
                     />
                 </div>
-                <div className='basis-full'>
-                    <Number
+               <div className='basis-full'>
+                    <FormCheckbox
                         formControl={form}
-                        label='Amount'
-                        name='amount'
+                        label='Enable feature'
+                        name='enabled'
+                        orientation='inline'
                     />
                 </div>
                 <div className='basis-full'>
-                    <FormSelect
+                    <GroupFormCheckbox
                         formControl={form}
-                        label='Mode'
-                        name='mode'
+                        name='items'
+                        items={[{id: 1, label: 'Choice 1'}, {id: 2, label: 'Choice 2'}]}
                         noFormBlock
-                        optionsItems={[
-                            {value: undefined, label: 'Select mode'},
-                            {value: '1', label: 'Mode 1'},
-                            {value: '2', label: 'Mode 2'},
-                        ]}
-                    />
-                </div>
-                <div className='basis-full'>
-                    <FormTextArea
-                        formControl={form}
-                        label='Description'
-                        name='description'
                     />
                 </div>
                 <div className='basis-full'>
