@@ -8,7 +8,6 @@ export default function GlobalError(
         <body>
         <h1>{error.message}</h1>
         <h2>{error.digest}</h2>
-        <button onClick={reset}>Try again</button>
         </body>
     </html>
 }

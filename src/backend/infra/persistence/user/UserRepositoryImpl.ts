@@ -21,7 +21,25 @@ export default class UserRepositoryImpl implements IUserRepository {
         })
     }
 
-    findAll(): Promise<any[]> {
+    findAll(query?: any): Promise<any[]> {
+        let q = query.query ?? '';
+
+        if (q.length > 0){
+
+            return prismaClient.user.findMany({
+                where:
+                    {
+                        OR: [
+                            {
+                                name: { contains: q }
+                            },
+                            {
+                                email: { contains: q }
+                            }
+                        ]
+                    }
+            });
+        }
         return prismaClient.user.findMany();
     }
 
