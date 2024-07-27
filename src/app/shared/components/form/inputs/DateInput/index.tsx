@@ -32,9 +32,9 @@ export default function DatePicker({ formControl, name, label, description, ...p
                         <PopoverTrigger asChild>
                             <FormControl>
                                 <Button
-                                    variant={"outline"}
+                                    variant="outline"
                                     className={cn(
-                                        "w-full pl-3 text-left font-normal",
+                                        "pl-3 text-left font-normal",
                                         !field.value && "text-muted-foreground"
                                     )}
                                 >

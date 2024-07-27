@@ -23,18 +23,22 @@ const FormBlock =  (
             control={formControl.control}
             name={props.name}
             render={({field}) =>
-                <FormItem>
-                    <FormLabel>
-                        {props.label}
-                    </FormLabel>
-                    <FormControl>
-                        <Component {...field} {...props} {...itemProps}/>
-                    </FormControl>
-                    <FormDescription>
-                        {props.description}
-                    </FormDescription>
-                    <FormMessage/>
-                </FormItem>
+                {
+                    return(
+                        <FormItem>
+                            <FormLabel>
+                                {props.label}
+                            </FormLabel>
+                            <FormControl>
+                                <Component {...field} {...props} {...itemProps}/>
+                            </FormControl>
+                            <FormDescription>
+                                {props.description}
+                            </FormDescription>
+                            <FormMessage/>
+                        </FormItem>
+                    )
+                }
             }
         />
     )
