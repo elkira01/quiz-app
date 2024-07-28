@@ -12,7 +12,7 @@ export type InputTypes =
     | 'range_input'
     | 'checkbox_group_input'
     | 'radio_input'
-    | 'dropdown_input'
+    | 'select_input'
     | 'file_input'
 
 type union = string | number
@@ -23,12 +23,12 @@ type FieldValidationType = {
     showWarning?: boolean
 }
 
-export interface FormInputDescriptionType {
+export interface BuilderInputProps {
     type: InputTypes
     label?: string
     name: string
     placeholder?: string
-    options?: string[] | Array<{value: any | undefined, key?: any, label: any}>
+    options?: Array<{value: any, key?: any, label: any}>
     required?: boolean
     description?: string
     validation?: FieldValidationType
@@ -40,7 +40,7 @@ export interface FormInputDescriptionType {
 }
 
 export interface FormBuilderProps {
-    inputs: FormInputDescriptionType[]
+    inputs: BuilderInputProps[]
     onSubmit: (data: Record<string, any>) => void
     initialValues?: Record<string, any>
     formState?: any

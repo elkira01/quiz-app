@@ -7,10 +7,14 @@ import TextAreaInput, {TextAreaInputProps} from "@/app/shared/components/form/in
 import CheckboxInput, {CheckboxInputProps} from "@/app/shared/components/form/inputs/CheckInput/CheckboxInput";
 import GroupCheckbox, {GroupCheckboxProps} from "@/app/shared/components/form/inputs/CheckInput/GroupCheckbox";
 
-export const FormInput = withFormBlock<TextInputProps>(TextInput);
-export const DateInput = withFormBlock<DateInputProps>(DatePicker);
-export const Number = withFormBlock<NumericalInputProps>(NumericalInput);
-export const FormSelect = withFormBlock<SelectInputProps>(SelectInput);
-export const FormTextArea = withFormBlock<TextAreaInputProps>(TextAreaInput);
-export  const FormCheckbox = withFormBlock<CheckboxInputProps>(CheckboxInput);
-export const GroupFormCheckbox = withFormBlock<GroupCheckboxProps>(GroupCheckbox)
+class Field {
+    static Input = withFormBlock<TextInputProps>(TextInput);
+    static Date = withFormBlock<DateInputProps>(DatePicker);
+    static Number = withFormBlock<NumericalInputProps>(NumericalInput);
+    static Select = withFormBlock<SelectInputProps>(SelectInput);
+    static TextArea = withFormBlock<TextAreaInputProps>(TextAreaInput);
+    static Checkbox = withFormBlock<CheckboxInputProps>(CheckboxInput);
+    static CheckboxGroup = withFormBlock<GroupCheckboxProps>(GroupCheckbox)
+}
+
+export default Field;

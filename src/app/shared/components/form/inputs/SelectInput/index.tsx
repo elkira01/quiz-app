@@ -8,7 +8,7 @@ export interface SelectInputProps extends InputProps {
     label: any,
     description?: any
     placeholder?: string
-    optionsItems?: Array<{ value: any|undefined, label: string }>
+    options?: Array<{ value: any|undefined, label: string, key?: any }>
 }
 const SelectInput = (
 {
@@ -16,7 +16,7 @@ const SelectInput = (
     name,
     label,
     description,
-    optionsItems,
+    options,
     placeholder
 }: SelectInputProps) => {
 
@@ -33,7 +33,7 @@ const SelectInput = (
                         </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                        {(optionsItems ?? []).map((item) =>
+                        {(options ?? []).map((item) =>
                             <SelectItem value={item.value ?? " "}>{item.label}</SelectItem>
                         )}
                     </SelectContent>
