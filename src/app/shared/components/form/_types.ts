@@ -18,9 +18,9 @@ export type InputTypes =
 type union = string | number
 
 type FieldValidationType = {
-    validator?: (value: any) => boolean,
     message?: string,
     showWarning?: boolean
+    validator?: (value: any) => boolean,
 }
 
 export interface BuilderInputProps {
@@ -28,15 +28,17 @@ export interface BuilderInputProps {
     label?: string
     name: string
     placeholder?: string
-    options?: Array<{value: any, key?: any, label: any}>
     required?: boolean
-    description?: string
-    validation?: FieldValidationType
+    min?: any
+    max?: any
     limit?: number
-    min?: number
-    max?: number
+    format?: string
+    description?: string
     allowNegativeValue?: boolean
-    col: union | {xs?: union, sm?: union, md?: union, lg?: union, xl?: union}
+    validation?: FieldValidationType
+    options?: Array<{value: any, key?: any, label: any}>
+    colSize: {xs?: union, sm?: union, md?: union, lg?: union, xl?: union}
+    hiddenOn?: {xs?: union, sm?: union, md?: union, lg?: union, xl?: union}
 }
 
 export interface FormBuilderProps {

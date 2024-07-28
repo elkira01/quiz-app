@@ -28,7 +28,7 @@ const FormBlock =  (
             render={({field}) =>
                 {
                     return(
-                        <FormItem className={cn(orientation === 'inline' && `flex flex-row items-start space-x-3 space-y-0`)}>
+                        <FormItem className={cn(orientation === 'inline' && `flex flex-row items-start space-x-3 space-y-0`, 'w-full')}>
                             {orientation !== 'inline' && <FormLabel>
                                 {props.label}
                             </FormLabel>}

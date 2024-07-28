@@ -1,7 +1,7 @@
 import {IFormValidator} from "./FormValidator";
 import {z} from "zod";
 
-class ZodFormValidator implements IFormValidator {
+class ZodFormValidatorFactory implements IFormValidator {
     private validator;
     private schema: any;
     private requiredFields: any;
@@ -25,7 +25,19 @@ class ZodFormValidator implements IFormValidator {
     _custom(validator: (value: any) => boolean, message?: string): any {
     }
 
-    _date(message?: string, required?: boolean, format?: string, minDate?: any, maxDate?: any): any {
+    _date(name: string, message?: string, required?: boolean, format?: string, minDate?: any, maxDate?: any): any {
+        this.validator = {
+            ...this.validator,
+            [name]:  z
+                .date()
+                .min(minDate?? new Date(0), {message: `${name} should be after ${minDate}`})
+                .max(maxDate?? new Date(Date.now() + 1000*60*60*24*365*100), {message: `${name} should be before ${maxDate}`})
+        }
+
+        this.requiredFields[name] = required?? false
+        this.schema = z.object(this.validator).required({...this.requiredFields})
+
+        return this.schema;
     }
 
     _email(name: string = '', message?: string, required?: boolean): any {
@@ -36,9 +48,10 @@ class ZodFormValidator implements IFormValidator {
                     required_error: 'This field is mandatory',
                 })
                 .email({
-                    message: message ?? 'Invalid input'
+                    message: message ?? 'Invalid email address'
                 })
         }
+
         this.requiredFields[name] = required ?? false
         this.schema = z.object(this.validator).required({...this.requiredFields})
 
@@ -51,14 +64,15 @@ class ZodFormValidator implements IFormValidator {
     _number(name: string, message?: string, required?: boolean, allowNegative: boolean = true, min?: number, max?: number, noDouble?: boolean): any {
         this.validator = {
             ...this.validator,
-            [name]:  z
+            [name]:  z.coerce
                 .number({
                     required_error: 'This field is mandatory',
                     invalid_type_error: message ?? `${name} must be a numerical value`
                 })
-                .min(min?? -Infinity).max(max?? Infinity)
+                .min(min?? -Infinity, {message: `${name} should be at least ${min}`})
+                .max(max?? Infinity,{message: `${name} shouldn't be higher than ${max}`})
                 .refine((data) => {
-                    return allowNegative? data >= (min ?? -Infinity) && data <= (max ?? Infinity) : data > 0 && data < (max ?? Infinity);
+                    return allowNegative? data >= (min ?? -Infinity) && data <= (max ?? Infinity) : data > 0 && data <= (max ?? Infinity);
                 },
                     { message: !allowNegative ? `${name} should be positive` : ``}
                 )
@@ -69,7 +83,7 @@ class ZodFormValidator implements IFormValidator {
         return this.schema;
     }
 
-    _password(name: string, message?: string, required?: boolean, min?: number, pattern?: RegExp): any {
+    _password(name: string, message?: string, required?: boolean, min?: number, pattern?: any): any {
         this.validator = {
             ...this.validator,
             [name]:  z
@@ -77,7 +91,7 @@ class ZodFormValidator implements IFormValidator {
                     required_error: 'This field is mandatory',
                     invalid_type_error: message ?? 'Invalid input'
                 })
-                .regex(pattern?? new RegExp('/*/'))
+                .regex( new RegExp(pattern))
                 .min(min ?? 2)
         }
         this.requiredFields[name] = required ?? false
@@ -148,4 +162,4 @@ class ZodFormValidator implements IFormValidator {
 
 }
 
-export default ZodFormValidator;
+export default ZodFormValidatorFactory;

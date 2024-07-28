@@ -1,7 +1,7 @@
 import {Input, InputProps} from "@/components/ui/input";
 
 export interface TextInputProps extends InputProps {
-    inputType?:
+    type?:
         'text'
         |'password'
         |'email'
@@ -11,6 +11,6 @@ export interface TextInputProps extends InputProps {
         |'color'
 }
 
-export default function TextInput({inputType, ...props}: TextInputProps & any) {
-    return <Input {...props} type={inputType ?? 'text'}/>
+export default function TextInput({type, ...props}: TextInputProps & any) {
+    return <Input {...props} type={type ?? 'text'}/>
 }

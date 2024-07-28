@@ -1,7 +1,7 @@
 import {BuilderInputProps} from "./_types";
 import  Field from './inputs/index';
 export default function ResolveInput({input, formControl}: { input: BuilderInputProps, formControl?: any}) {
-    const resolve = () => {
+    const resolved = () => {
         switch (input.type) {
             case 'text_input':
                 return <Field.Input
@@ -49,10 +49,17 @@ export default function ResolveInput({input, formControl}: { input: BuilderInput
                     name={input.name}
                     label={input.label}
                 />
+            case 'date_input':
+                return <Field.Date
+                    formControl={formControl}
+                    name={input.name}
+                    label={input.label}
+                    noFormBlock
+                />
             default:
                 return null
         }
     }
 
-    return resolve();
+    return resolved();
 }

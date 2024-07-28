@@ -23,10 +23,10 @@ export default function DatePicker({ formControl, name, label, description, ...p
 
     return (
         <FormField
-            control={formControl.control}
+            control={formControl?.control}
             name={name}
             render={({ field }) => (
-                <FormItem className="flex flex-col">
+                <FormItem className="flex flex-col w-full">
                     <FormLabel>{label ?? ''}</FormLabel>
                     <Popover>
                         <PopoverTrigger asChild>

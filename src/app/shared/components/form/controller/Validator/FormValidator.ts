@@ -13,7 +13,7 @@ export interface IFormValidator extends Interface {
     _radio(message?: string, required?: boolean): any
     _checkbox(message?: string, required?: boolean): any
     _checkboxGroup(message?: string, required?: boolean): any
-    _date(message?: string, required?: boolean, format?: string, minDate?: any, maxDate?: any): any
+    _date(name: string,message?: string, required?: boolean, format?: string, minDate?: any, maxDate?: any): any
     _time(message?: string, required?: boolean): any
     _url(message?: string): any
     _file(message?: string, required?: boolean): any
