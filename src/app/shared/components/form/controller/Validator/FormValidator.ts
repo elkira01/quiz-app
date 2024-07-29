@@ -9,13 +9,18 @@ export interface IFormValidator extends Interface {
 
     _password(name: string, message?: string, required?: boolean, min?: number, pattern?: RegExp): any
     _confirmPassword(name: string, min?: number, message?: string, pattern?: RegExp,required?: boolean): any
-    _select(message?: string, required?: boolean): any
-    _radio(message?: string, required?: boolean): any
-    _checkbox(message?: string, required?: boolean): any
-    _checkboxGroup(message?: string, required?: boolean): any
+
+    _select(name: string, message?: string, required?: boolean): any
+
+    _radio(name: string,  message?: string, required?: boolean): any
+    _checkbox(name: string, message?: string, required?: boolean): any
+    _checkboxGroup(name: string, message?: string, required?: boolean): any
+
     _date(name: string,message?: string, required?: boolean, format?: string, minDate?: any, maxDate?: any): any
-    _time(message?: string, required?: boolean): any
-    _url(message?: string): any
-    _file(message?: string, required?: boolean): any
+    _time(name: string, message?: string, required?: boolean): any
+
+    _url(name: string, message?: string): any
+    _file(name: string, message?: string, required?: boolean): any
+
     _custom(validator: (value: any) => boolean, message?: string): any
 }

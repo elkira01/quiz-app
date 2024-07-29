@@ -1,6 +1,6 @@
 import {z} from "zod";
 import {useEffect, useState} from "react";
-import {resolveInputsValidation} from "@/app/shared/components/form/controller/_utils";
+import {resolveInputsValidation} from "./helpers";
 
 
 export const useFormController = (params: any) => {
@@ -11,8 +11,6 @@ export const useFormController = (params: any) => {
         const validator = resolveInputsValidation(inputs);
         setSchema(validator);
     },[inputs])
-
-
 
     return {
         schema

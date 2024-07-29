@@ -4,7 +4,7 @@ import {useFormController} from "@/app/shared/components/form/controller/useForm
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {Button} from "@/components/ui/button";
-import ResolveInput from "@/app/shared/components/form/ResolveInput";
+import ResolvedInput from "@/app/shared/components/form/ResolvedInput";
 import FormCol from "@/app/shared/components/form/_components/FormCol";
 
 export default function FormBuilder({...props }: FormBuilderProps) {
@@ -22,12 +22,12 @@ export default function FormBuilder({...props }: FormBuilderProps) {
 
     return<Form {...form}>
         <form onSubmit={form.handleSubmit(onFinish)} className="space-y-8">
-            <div className='flex flex-row flex-wrap justify-between'>
+            <div className='flex flex-row flex-wrap justify-between gap-y-5'>
                 {(props.inputs ?? []).map((item: BuilderInputProps) =>
                     {
                         return(
                             <FormCol key={item.name} {...item.colSize ?? {}}>
-                                <ResolveInput input={item} formControl={form}/>
+                                <ResolvedInput input={item} formControl={form}/>
                             </FormCol>
                         )
                     }

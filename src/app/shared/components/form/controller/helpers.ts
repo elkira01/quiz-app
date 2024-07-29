@@ -22,6 +22,9 @@ const resolveInputsValidation = (inputs: BuilderInputProps[]): any => {
             case "date_input":
                 validator._date(input.name, input.validation?.message, input.required, '', input.min, input.max);
                 break;
+            case "checkbox_input":
+                validator._checkbox(input.name, input.validation?.message, false);
+                break;
             default:
         }
     });

@@ -1,6 +1,6 @@
 import {cn} from "@/lib/utils";
 import React, {useState} from "react";
-import {resolveColumnSize} from "@/app/shared/components/form/_components/_utils";
+import {resolveColumnSize} from "./helpers";
 
 interface ColProps extends React.HTMLProps<HTMLDivElement>{
     xs?: any
@@ -11,7 +11,12 @@ interface ColProps extends React.HTMLProps<HTMLDivElement>{
     children: React.ReactNode
 }
 
-const FormCol = ({children, className, ...rest}: ColProps) => {
+const FormCol = (
+{
+    children,
+    className,
+    ...rest
+}: ColProps) => {
     const [basis, setBasis] = useState<number|string>(100)
     const flexBasis = {
         xs: rest.xs,

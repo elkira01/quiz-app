@@ -1,7 +1,13 @@
-import { format } from "date-fns"
-import { CalendarIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { format } from "date-fns"
+import {InputProps} from "react-day-picker";
+import { CalendarIcon } from "lucide-react"
+import {Button} from "@/components/ui/button"
+import {Calendar} from "@/components/ui/calendar";
+import {Popover,
+    PopoverContent,
+    PopoverTrigger
+} from "@/components/ui/popover";
 import {
     FormControl,
     FormDescription,
@@ -9,17 +15,17 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/components/ui/form"
-import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
-import {Calendar} from "@/components/ui/calendar";
-import {InputProps} from "react-day-picker";
+} from "@/components/ui/form";
 export interface DateInputProps extends InputProps {
     formControl: any,
-    name: any,
+    name: string,
     label: any,
     description?: any
+    format?: string
+    placeholder?: string
+    disabled?: boolean
 }
-export default function DatePicker({ formControl, name, label, description, ...props}: DateInputProps) {
+export default function DateInput({ formControl, name, label, description, ...props}: DateInputProps) {
 
     return (
         <FormField
@@ -49,6 +55,7 @@ export default function DatePicker({ formControl, name, label, description, ...p
                         </PopoverTrigger>
                         <PopoverContent align='end'>
                             <Calendar
+                                disabled={props.disabled}
                                 mode='single'
                                 selected={field.value}
                                 onSelect={field.onChange}

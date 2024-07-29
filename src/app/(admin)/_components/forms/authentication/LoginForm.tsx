@@ -23,45 +23,44 @@ const LoginForm = () => {
 
     const builderInputs : BuilderInputProps[] = [
         {
-            label: "Date",
-            name: "registerDate",
-            type: "date_input",
-            required: true,
-            colSize: {sm: 50, md: 32, lg: 20},
-            format: 'YYYY-MM-DD'
-        },
-        {
             label: "Email",
             name: "email",
             type: "email_input",
-            required: true,
-            colSize: {sm: 50, md: 32, lg: 20},
+            colSize: {sm: 49},
             validation: {message: "Invalid e-mail address"}
         },
         {
             label: "Full name",
             name: "name",
             type: "text_input",
-            required: true,
-            colSize: {sm: 50, md: 32, lg: 20},
+            colSize: {sm: 49},
+            placeholder: 'Placeholder'
         },
         {
             label: "Password",
             name: "password",
             type: "password_input",
-            required: true,
-            colSize: {sm: 50, md: 32, lg: 20},
+            colSize: {sm: 100},
             min: 8
         },
         {
             label: "Amount",
             name: "amount",
             type: "numerical_input",
-            required: false,
             allowNegativeValue: false,
             min: 5000,
             max: 1000000,
-            colSize: {sm: 50, md: 32, lg: 20},
+            colSize: { sm: 100 },
+        },
+        {
+            label: "I agree with the contract terms",
+            name: "agreement",
+            type: "checkbox_input",
+        },
+        {
+            label: "Date",
+            name: "date",
+            type: "date_input",
         },
     ]
 

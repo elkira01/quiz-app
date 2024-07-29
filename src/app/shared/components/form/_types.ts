@@ -24,6 +24,7 @@ type FieldValidationType = {
 }
 
 export interface BuilderInputProps {
+    disabled?: boolean
     type: InputTypes
     label?: string
     name: string
@@ -36,6 +37,7 @@ export interface BuilderInputProps {
     description?: string
     allowNegativeValue?: boolean
     validation?: FieldValidationType
+    parser?: (value: any, reversed?: boolean) => any
     options?: Array<{value: any, key?: any, label: any}>
     colSize?: {xs?: union, sm?: union, md?: union, lg?: union, xl?: union}
     hiddenOn?: {xs?: union, sm?: union, md?: union, lg?: union, xl?: union}
