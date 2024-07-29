@@ -53,7 +53,9 @@ const FormBlock =  (
 export const withFormBlock = <T = any>(Component: any, itemProps?: any) => {
     return (props: FormBlockProps & T & { noFormBlock?: boolean }) => {
         if (props.noFormBlock){
-            return <Component {...props}/>
+            return <div className='mt-[0.60rem]'>
+                <Component {...props}/>
+            </div>
         }
 
         return <FormBlock Component={Component} {...props} itemProps={itemProps}/>
