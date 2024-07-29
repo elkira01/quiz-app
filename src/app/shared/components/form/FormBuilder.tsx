@@ -5,7 +5,7 @@ import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {Button} from "@/components/ui/button";
 import ResolveInput from "@/app/shared/components/form/ResolveInput";
-import {Col} from "@/app/shared/components/form/_components/Col";
+import FormCol from "@/app/shared/components/form/_components/FormCol";
 
 export default function FormBuilder({...props }: FormBuilderProps) {
     const { schema } = useFormController({inputs: props.inputs})
@@ -22,20 +22,20 @@ export default function FormBuilder({...props }: FormBuilderProps) {
 
     return<Form {...form}>
         <form onSubmit={form.handleSubmit(onFinish)} className="space-y-8">
-            <div className='grid gap-x-2 grid-cols-1 sm:grid-cols-2 gap-y-1'>
+            <div className='flex flex-row flex-wrap justify-between'>
                 {(props.inputs ?? []).map((item: BuilderInputProps) =>
                     {
                         return(
-                            <Col className='' key={item.name}>
+                            <FormCol key={item.name} {...item.colSize ?? {}}>
                                 <ResolveInput input={item} formControl={form}/>
-                            </Col>
+                            </FormCol>
                         )
                     }
                 )}
             </div>
-            <Col className=''>
+            <FormCol className=''>
                 <Button className='w-full' type="submit">Submit</Button>
-            </Col>
+            </FormCol>
         </form>
     </Form>
 }

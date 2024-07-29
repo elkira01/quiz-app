@@ -37,7 +37,7 @@ export interface BuilderInputProps {
     allowNegativeValue?: boolean
     validation?: FieldValidationType
     options?: Array<{value: any, key?: any, label: any}>
-    colSize: {xs?: union, sm?: union, md?: union, lg?: union, xl?: union}
+    colSize?: {xs?: union, sm?: union, md?: union, lg?: union, xl?: union}
     hiddenOn?: {xs?: union, sm?: union, md?: union, lg?: union, xl?: union}
 }
 
