@@ -22,20 +22,20 @@ export default function FormBuilder({...props }: FormBuilderProps) {
 
     return<Form {...form}>
         <form onSubmit={form.handleSubmit(onFinish)} className="space-y-8">
-            <div className='flex justify-between flex-wrap gap-y-1'>
+            <div className='grid gap-x-2 grid-cols-1 sm:grid-cols-2 gap-y-1'>
                 {(props.inputs ?? []).map((item: BuilderInputProps) =>
                     {
                         return(
-                            <Col className='px-2' key={item.name} flexBasis={item.colSize}>
+                            <Col className='' key={item.name}>
                                 <ResolveInput input={item} formControl={form}/>
                             </Col>
                         )
                     }
                 )}
-                <Col className='basis-full px-2 my-2'>
-                    <Button className='w-full' type="submit">Submit</Button>
-                </Col>
             </div>
+            <Col className=''>
+                <Button className='w-full' type="submit">Submit</Button>
+            </Col>
         </form>
     </Form>
 }
