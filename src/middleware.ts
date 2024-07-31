@@ -6,8 +6,8 @@ export default function middleware(request: NextRequest) {
     const {pathname, searchParams} = request.nextUrl
     const authToken = request.cookies.get('authToken')?.value
 
-    if (!authToken && pathname.startsWith('/pages/admin')) {
-        return Response.redirect(new URL('/page/user/authentication', request.url))
+    if (!authToken && pathname.startsWith('/admin')) {
+        return Response.redirect(new URL('/dashboard/login', request.url))
     }
 
     // if (pathname.startsWith('/')) {

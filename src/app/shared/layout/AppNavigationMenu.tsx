@@ -1,8 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "@/lib/utils"
-import {NavigationMenu, NavigationMenuLink, NavigationMenuList} from "@/components/ui/navigation-menu"
+import {NavigationMenu, NavigationMenuList} from "@/components/ui/navigation-menu"
 import { NavItem, NavItemProps} from "@/app/shared/layout/NavItem";
 
 const appMenu: NavItemProps[] = [
@@ -12,15 +11,11 @@ const appMenu: NavItemProps[] = [
     },
     {
         label: "Quiz",
-        path: "/pages/quiz",
-    },
-    {
-        label: "FAQ",
-        path: "/pages/faq",
+        path: "/quizz",
     },
     {
         label: "Admin",
-        path: "/pages/admin",
+        path: "/admin",
     }
 ]
 export function AppNavigationMenu() {

@@ -1,9 +1,10 @@
-import {User} from "@/backend/domain/model/User";
+import {IUser} from "./IUser";
 
 export interface IQuizDomain {
     id?: any
     designation: string
-    author: Partial<User>
+    description?: string
+    author: Partial<IUser>
     createdAt?: any
     updatedAt?: any
 }

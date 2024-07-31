@@ -9,7 +9,7 @@ import authController from "@/app/(app)/user/authentication/useAuthController";
 export default function Header(){
     const {onLogout} = authController()
 
-    return<header className="my-5 md:my-10 flex justify-center items-center py-3 border-b-[1px] border-b-gray-300">
+    return<header className="my-2 flex justify-center items-center py-3 border-b-[1px] border-b-gray-300">
         <div className='basis-1/3 text-center'>
             <span className="text-4xl font-bold text-red-600">? ? ?</span>
         </div>

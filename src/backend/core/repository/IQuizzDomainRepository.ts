@@ -1,9 +1,9 @@
-import {QuizDomain} from "@/backend/domain/model/QuizDomain";
+import {IQuizDomain} from "@/backend/core/model/IQuizDomain";
 
 export interface IQuizDomainRepository {
-    create(data: QuizDomain) : Promise<any>
-    update(id: any, data: QuizDomain) : Promise<any>
+    create(data: IQuizDomain) : Promise<any>
+    update(id: any, data: IQuizDomain) : Promise<any>
     delete(id: any) : Promise<any>
-    fetchOne(id: any) : Promise<QuizDomain | undefined>
-    fetchAll(queryParams?: any) : Promise<QuizDomain[] | undefined>
+    findOne(id: any) : Promise<IQuizDomain | undefined>
+    findAll(queryParams?: any) : Promise<IQuizDomain[] | undefined>
 }
