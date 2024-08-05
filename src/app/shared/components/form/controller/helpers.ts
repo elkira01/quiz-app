@@ -1,29 +1,35 @@
 import {BuilderInputProps} from "@/app/shared/components/form/_types";
 import {IFormValidator} from "@/app/shared/components/form/controller/Validator/FormValidator";
-import ZodFormValidatorFactory from "@/app/shared/components/form/controller/Validator/ZodFormValidatorFactory";
+import ZodFormValidator from "@/app/shared/components/form/controller/Validator/ZodFormValidator";
 
 const resolveInputsValidation = (inputs: BuilderInputProps[]): any => {
-    let validator : IFormValidator = new ZodFormValidatorFactory();
+    let validator : IFormValidator = new ZodFormValidator();
 
     inputs.forEach((input) => {
         switch (input.type) {
             case "text_input":
-                validator._text(input.name, input.validation?.message, input.required, input.limit);
+                validator._text({...input, message: input.validation?.message});
                 break;
             case "email_input":
-                validator._email(input.name, input.validation?.message, input.required);
+                validator._email({...input, message: input.validation?.message});
                 break;
             case "password_input":
-                validator._password(input.name, input.validation?.message, input.required, input.min);
+                validator._password({...input, message: input.validation?.message});
+                break;
+            case "confirm_password_input":
+                validator._confirmPassword({...input, message: input.validation?.message});
                 break;
             case "numerical_input":
-                validator._number(input.name, input.validation?.message, input.required, input.allowNegativeValue, input.min, input.max, false);
+                validator._number({...input, message: input.validation?.message});
                 break;
             case "date_input":
-                validator._date(input.name, input.validation?.message, input.required, '', input.min, input.max);
+                validator._date({...input, message: input.validation?.message});
                 break;
             case "checkbox_input":
-                validator._checkbox(input.name, input.validation?.message, false);
+                validator._checkbox({...input, message: input.validation?.message});
+                break;
+            case "select_input":
+                validator._select({...input, message: input.validation?.message});
                 break;
             default:
         }

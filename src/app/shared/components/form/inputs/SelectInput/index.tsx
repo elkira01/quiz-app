@@ -21,7 +21,7 @@ const SelectInput = (
 }: SelectInputProps) => {
 
     return<FormField
-        control={formControl.control}
+        control={formControl?.control}
         name={name}
         render={({ field }) => (
             <FormItem>
@@ -29,7 +29,7 @@ const SelectInput = (
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                         <SelectTrigger>
-                            <SelectValue placeholder={`${placeholder ?? "Select an item below"}`} />
+                            <SelectValue placeholder={placeholder ?? "Select an item below"} />
                         </SelectTrigger>
                     </FormControl>
                     <SelectContent>

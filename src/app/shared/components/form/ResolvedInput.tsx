@@ -29,6 +29,7 @@ export default function ResolvedInput({input, formControl}: { input: BuilderInpu
                     formControl={formControl}
                     name={input.name}
                     options={input.options}
+                    noFormBlock
                 />
             case 'checkbox_input':
                 return <Field.Checkbox
@@ -61,6 +62,14 @@ export default function ResolvedInput({input, formControl}: { input: BuilderInpu
                     type='password'
                     formControl={formControl}
                     name={input.name}
+                    label={input.label}
+                />
+            case 'confirm_password_input':
+                return <Field.Input
+                    disabled={input.disabled}
+                    type='password'
+                    formControl={formControl}
+                    name={`confirm_${input.name}`}
                     label={input.label}
                 />
             case 'date_input':

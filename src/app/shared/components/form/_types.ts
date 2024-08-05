@@ -7,6 +7,7 @@ export type InputType =
     | 'time_input'
     | 'email_input'
     | 'url_input'
+    | 'confirm_password_input'
     | 'password_input'
     | 'color_input'
     | 'range_input'
@@ -32,7 +33,7 @@ export interface BuilderInputProps {
     disabled?: boolean
     label?: string
     name: string
-    placeholder?: string
+    placeholder?: any
     required?: boolean
     min?: any
     max?: any
