@@ -22,46 +22,46 @@ const LoginForm = () => {
         })
 
     const builderInputs : BuilderInputProps[] = [
-        {
-            label: "Email",
-            name: "email",
-            type: "email_input",
-            colSize: {sm: 49},
-            validation: {message: "Invalid e-mail address"}
-        },
-        {
-            label: "Full name",
-            name: "name",
-            type: "text_input",
-            colSize: {sm: 49},
-            placeholder: 'Placeholder'
-        },
-        {
-            label: "Password",
-            name: "password",
-            type: "password_input",
-            colSize: {sm: 100},
-            min: 8
-        },
-        {
-            label: "Amount",
-            name: "amount",
-            type: "numerical_input",
-            allowNegativeValue: false,
-            min: 5000,
-            max: 1000000,
-            colSize: { sm: 100 },
-        },
+        // {
+        //     label: "Email",
+        //     name: "email",
+        //     type: "email_input",
+        //     colSize: {sm: 49},
+        //     validation: {message: "Invalid e-mail address"}
+        // },
+        // {
+        //     label: "Full name",
+        //     name: "name",
+        //     type: "text_input",
+        //     colSize: {sm: 49},
+        //     placeholder: 'Placeholder'
+        // },
+        // {
+        //     label: "Password",
+        //     name: "password",
+        //     type: "password_input",
+        //     colSize: {sm: 100},
+        //     min: 8
+        // },
+        // {
+        //     label: "Amount",
+        //     name: "amount",
+        //     type: "numerical_input",
+        //     allowNegativeValue: false,
+        //     min: 5000,
+        //     max: 1000000,
+        //     colSize: { sm: 100 },
+        // },
         {
             label: "I agree with the contract terms",
             name: "agreement",
             type: "checkbox_input",
         },
-        {
-            label: "Date",
-            name: "date",
-            type: "date_input",
-        },
+        // {
+        //     label: "Date",
+        //     name: "date",
+        //     type: "date_input",
+        // },
     ]
 
     const onSubmit = (data: any) => console.log(data);
