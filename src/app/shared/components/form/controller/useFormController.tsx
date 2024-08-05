@@ -1,11 +1,11 @@
-import {z} from "zod";
+import {z, ZodSchema} from "zod";
 import {useEffect, useState} from "react";
 import {resolveInputsValidation} from "./helpers";
 
 
 export const useFormController = (params: any) => {
     const { inputs } = params;
-    const [schema, setSchema] = useState<any>(z.object({}))
+    const [schema, setSchema] = useState<ZodSchema>(z.object({}))
 
     useEffect(() => {
         const validator = resolveInputsValidation(inputs);
@@ -13,6 +13,6 @@ export const useFormController = (params: any) => {
     },[inputs])
 
     return {
-        schema
+        schema,
     }
 }

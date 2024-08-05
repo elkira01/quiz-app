@@ -8,9 +8,6 @@ import {BuilderInputProps} from "@/app/shared/components/form/_types";
 const LoginForm = () => {
     const {isAuth} = authController()
 
-    window.addEventListener('resize', () => {
-        console.log(window.innerWidth)
-    },false)
     const schema =
         z.object({
             email: z.string().email(),
@@ -26,14 +23,15 @@ const LoginForm = () => {
             label: "Email",
             name: "email",
             type: "email_input",
-            colSize: {sm: 49},
-            validation: {message: "Invalid e-mail address"}
+            colSize: {sm: 100},
+            required: true,
+            validation: { message: { required_msg: "Please enter a valid email address" } }
         },
         {
             label: "Full name",
             name: "name",
             type: "text_input",
-            colSize: {sm: 49},
+            colSize: {sm: 100},
             placeholder: 'Placeholder'
         },
         {
@@ -56,12 +54,13 @@ const LoginForm = () => {
             label: "I agree with the contract terms",
             name: "agreement",
             type: "checkbox_input",
+            required: true
         },
-        {
-            label: "Date",
-            name: "date",
-            type: "date_input",
-        },
+        // {
+        //     label: "Date",
+        //     name: "date",
+        //     type: "date_input",
+        // },
     ]
 
     const onSubmit = (data: any) => console.log(data);

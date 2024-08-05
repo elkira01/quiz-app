@@ -1,6 +1,7 @@
 import {BuilderInputProps} from "./_types";
 import  Field from './inputs/index';
 export default function ResolvedInput({input, formControl}: { input: BuilderInputProps, formControl?: any}) {
+
     const resolved = () => {
         switch (input.type) {
             case 'text_input':
