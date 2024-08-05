@@ -8,9 +8,6 @@ import {BuilderInputProps} from "@/app/shared/components/form/_types";
 const LoginForm = () => {
     const {isAuth} = authController()
 
-    window.addEventListener('resize', () => {
-        console.log(window.innerWidth)
-    },false)
     const schema =
         z.object({
             email: z.string().email(),
@@ -22,6 +19,7 @@ const LoginForm = () => {
         })
 
     const builderInputs : BuilderInputProps[] = [
+
         // {
         //     label: "Email",
         //     name: "email",
@@ -56,6 +54,7 @@ const LoginForm = () => {
             label: "I agree with the contract terms",
             name: "agreement",
             type: "checkbox_input",
+            required: true
         },
         // {
         //     label: "Date",

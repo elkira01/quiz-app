@@ -1,8 +1,12 @@
+import {ValidationDescriptionProps} from "@/app/shared/components/form/_types";
+
 interface Interface {
     get(): any
 }
 export interface IFormValidator extends Interface {
-    _text(name: string,message?: string, required?: boolean, limit?: number): any
+    _text(name: string, message?: ValidationDescriptionProps, required?: boolean, limit?: number): any
+
+    _number(name: string, message?: ValidationDescriptionProps, required?: boolean, allowNegative?: boolean, min?: number, max?: number, noDouble?: boolean): any
 
     _number(name: string, message?: string, required?: boolean, allowNegative?: boolean, min?: number, max?: number, noDouble?: boolean): any
 

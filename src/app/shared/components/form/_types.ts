@@ -1,4 +1,4 @@
-export type InputTypes =
+export type InputType =
     'numerical_input'
     | 'text_input'
     | 'textarea_input'
@@ -17,15 +17,19 @@ export type InputTypes =
 
 type union = string | number
 
-type FieldValidationType = {
-    message?: string,
-    showWarning?: boolean
+export interface ValidationDescriptionProps {
+    required_msg?: string
+    invalid_msg?: string|any
+}
+
+export interface FieldValidationProps {
+    message?: ValidationDescriptionProps,
     validator?: (value: any) => boolean,
 }
 
 export interface BuilderInputProps {
+    type: InputType
     disabled?: boolean
-    type: InputTypes
     label?: string
     name: string
     placeholder?: string
@@ -36,7 +40,7 @@ export interface BuilderInputProps {
     format?: string
     description?: string
     allowNegativeValue?: boolean
-    validation?: FieldValidationType
+    validation?: FieldValidationProps
     parser?: (value: any, reversed?: boolean) => any
     options?: Array<{value: any, key?: any, label: any}>
     colSize?: {xs?: union, sm?: union, md?: union, lg?: union, xl?: union}
