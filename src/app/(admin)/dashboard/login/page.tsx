@@ -5,7 +5,7 @@ import {Card} from "@/components/ui/card";
 export default function AdminLogin(){
 
     return(
-        <div className='w-full border-2 border-dashed py-10 border-black'>
+        <div className='w-full py-10'>
             <Card className="w-1/2 p-[1.25rem] bg-card">
                 <AdminLoginForm/>
             </Card>

@@ -1,5 +1,6 @@
 import {BuilderInputProps} from "./_types";
 import  Field from './inputs/index';
+import {Button} from "@/components/ui/button";
 export default function ResolvedInput({input, formControl}: { input: BuilderInputProps, formControl?: any}) {
 
     const resolved = () => {
@@ -80,6 +81,23 @@ export default function ResolvedInput({input, formControl}: { input: BuilderInpu
                     label={input.label}
                     noFormBlock
                 />
+            case 'submit_button':
+                return(
+                    <Button
+                        disabled={input.disabled}
+                        className='w-full my-3'
+                        type="submit"
+                    >
+                        {input.label}
+                    </Button>
+                )
+            case 'link':
+                return <div className="flex justify-start w-full text-[14px]">
+                    <span>{input.label}</span>
+                    <a href={input.link?.link} className="ml-2 text-blue-600 hover:text-blue-800 underline">
+                        {input.link?.linkText}
+                    </a>
+                </div>
             default:
                 return null
         }

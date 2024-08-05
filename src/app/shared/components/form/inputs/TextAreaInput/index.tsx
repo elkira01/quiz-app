@@ -1,14 +1,8 @@
 import {Textarea, TextareaProps} from "@/components/ui/textarea";
-
-export interface TextAreaInputProps extends TextareaProps {}
-
-const TextAreaInput = ({...props}: TextAreaInputProps) => {
+const TextAreaInput = ({...props}: TextareaProps) => {
 
     return(
-        <Textarea
-            {...props}
-            className="resize-none"
-        />
+        <Textarea {...props}/>
     )
 }
 export default TextAreaInput;

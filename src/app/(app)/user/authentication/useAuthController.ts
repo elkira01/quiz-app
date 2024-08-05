@@ -10,6 +10,7 @@ const UseAuthController = () => {
     const [isAuth, setIsAuth] = useState<boolean|undefined>()
     const onLogin = async (credential: any) => {
         let response: any
+        console.log(credential)
 
         try {
             response= await authenticate({

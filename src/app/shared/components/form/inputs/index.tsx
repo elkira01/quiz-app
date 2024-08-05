@@ -16,5 +16,4 @@ class Field {
     static Checkbox = withFormBlock<CheckboxInputProps>(CheckboxInput);
     static CheckboxGroup = withFormBlock<GroupCheckboxProps>(GroupCheckbox)
 }
-
 export default Field;

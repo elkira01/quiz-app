@@ -3,12 +3,11 @@ import {BuilderInputProps, FormBuilderProps} from "@/app/shared/components/form/
 import {useFormController} from "@/app/shared/components/form/controller/useFormController";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {Button} from "@/components/ui/button";
 import ResolvedInput from "@/app/shared/components/form/ResolvedInput";
 import FormCol from "@/app/shared/components/form/_components/FormCol";
 
 export default function FormBuilder({...props }: FormBuilderProps) {
-    const { schema } = useFormController({inputs: props.inputs})
+    const { schema } = useFormController({ inputs: props.inputs })
 
     const form = useForm({
         resolver: zodResolver(schema),
@@ -17,7 +16,7 @@ export default function FormBuilder({...props }: FormBuilderProps) {
 
     const onFinish = async (values: any) => {
         await props.onSubmit(values)
-        // form.reset()
+        form.reset()
     }
 
     return<Form {...form}>
@@ -33,9 +32,6 @@ export default function FormBuilder({...props }: FormBuilderProps) {
                     }
                 )}
             </div>
-            <FormCol className=''>
-                <Button className='w-full' type="submit">Submit</Button>
-            </FormCol>
         </form>
     </Form>
 }

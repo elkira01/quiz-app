@@ -4,7 +4,6 @@ import useLayout from "./useLayout";
 import {cn} from "@/lib/utils";
 import {MenuItemType} from "@/app/(admin)/_config/navigation/menu";
 import {MainMenuWrapper, SubMenuWrapper} from "./SideBar";
-import * as SC from './SideBar/_styles';
 
 export const ToggleContext = createContext<any>({
     toggledMainMenu: false,
@@ -17,10 +16,15 @@ interface LayoutProps {
 }
 
 export default function DashboardLayout({ children, mainMenu }: LayoutProps){
-    const {setSelectedMenu, toggleHandler, toggleState, subMenu} = useLayout({ menuItems: mainMenu })
+    const {
+        setSelectedMenu,
+        toggleHandler,
+        toggleState,
+        subMenu
+    } = useLayout({ menuItems: mainMenu })
     const [state, dispatch] = useReducer(toggleHandler, toggleState)
-    const aToggle = (type: string) => dispatch({type: type})
 
+    const aToggle = (type: string) => dispatch({type: type})
     const bToggle = () => dispatch({type: 'TOGGLE_SUBMENU', payload: {...state, toggledSubMenu: true}})
     const onMenuChange = ( menuItem: any) => {
         setSelectedMenu(menuItem.key)
@@ -35,7 +39,7 @@ export default function DashboardLayout({ children, mainMenu }: LayoutProps){
                 <aside id='admin-content'
                     className={
                     cn(
-                        'basis-[93%] md:basis-[85%] p-[20px] flex flex-col justify-center gap-y-20 bg-green-900',
+                        'basis-[93%] md:basis-[85%] p-[20px] flex flex-col justify-center gap-y-20',
                         { 'md:basis-[95%]': state?.toggledMainMenu, 'md:basis-[75%]': !state?.toggledSubMenu }
                     )}
                 >

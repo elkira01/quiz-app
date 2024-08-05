@@ -15,6 +15,9 @@ export type InputType =
     | 'radio_input'
     | 'select_input'
     | 'file_input'
+    | 'submit_button'
+    | 'cancel_button'
+    | 'link'
 
 type union = string | number
 
@@ -46,6 +49,7 @@ export interface BuilderInputProps {
     options?: Array<{value: any, key?: any, label: any}>
     colSize?: {xs?: union, sm?: union, md?: union, lg?: union, xl?: union}
     hiddenOn?: {xs?: union, sm?: union, md?: union, lg?: union, xl?: union}
+    link?: {link: string, linkText: string}
 }
 
 export interface FormBuilderProps {
