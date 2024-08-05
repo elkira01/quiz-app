@@ -8,7 +8,9 @@ const CheckboxInput = ({...props}: CheckboxInputProps) => {
 
 
     return<Checkbox
+        disabled={props.disabled}
         checked={props.value as CheckedState}
-        onCheckedChange={props.onChange as any}/>
+        onCheckedChange={props.onChange as any}
+    />
 }
 export default CheckboxInput;
